@@ -2,14 +2,14 @@ import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
 // Pages
-import { Home } from '../core/modules/Home'
+import { GlobalTracking } from '../core/modules/GlobalTracking'
 
 export const MainRoutes = () => {
     return (
         <Routes>
-            <Route path='/' element={<Home/>}/>
+            <Route path='/global-tracking' element={<GlobalTracking/>}/>
 
-            <Route path='*' element={<Navigate to='/' replace/>}/>
+            <Route path='*' element={<Navigate to='/global-tracking' replace/>}/>
         </Routes>
     )
 }

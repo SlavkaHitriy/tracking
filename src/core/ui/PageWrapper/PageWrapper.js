@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react'
 // Styles
 import styles from './index.module.scss'
 
+// Components
+import { Header } from '../Header'
+
 export const PageWrapper = ({children}) => {
     const [content, setContent] = useState(false)
 
@@ -12,6 +15,7 @@ export const PageWrapper = ({children}) => {
 
     return (
         <div className={styles.pageWrapper}>
+            <Header />
             {
                 content && (
                     <main className={styles.pageWrapperContent}>

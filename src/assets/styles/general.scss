@@ -11,7 +11,7 @@ body, html {
 }
 
 body {
-    font-family: $primaryFont;
+    font-family: 'Roboto', sans-serif;
     color: $primary;
     font-weight: 400;
     line-height: 1.3;
@@ -20,12 +20,17 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+    transition: all .15s;
 }
 
 ul {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+img {
+    display: block;
 }
 
 h1, h2, h3, h4, h5, h6 {

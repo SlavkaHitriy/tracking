@@ -6,11 +6,11 @@ import styles from './index.module.scss'
 // Components
 import { PageWrapper } from '../../ui/PageWrapper'
 
-export const Home = () => {
+export const GlobalTracking = () => {
     return (
         <PageWrapper>
             <div className={styles.home}>
-                Home
+
             </div>
         </PageWrapper>
     )
