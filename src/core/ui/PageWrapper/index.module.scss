@@ -1,0 +1,14 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.pageWrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.pageWrapperContent {
+    flex-grow: 1;
+    display: flex;
+}
