@@ -10,4 +10,24 @@ $black: #121212;
 $green: #19A872;
 $greenLight: #76C278;
 $gray: #9E9E9E;
-$grayLight: #D5D5D5;
+$grayLight: #d5d5d5;
+$red: #f47979;
+
+//
+//  Spacing
+//
+
+$spacer: 20px;
+$spacer-map: (
+        0: $spacer * 0,
+        1: $spacer * 0.25,
+        2: $spacer * 0.50,
+        3: $spacer * 0.75,
+        4: $spacer,
+        5: $spacer * 1.25,
+        6: $spacer * 1.50,
+        7: $spacer * 1.75,
+        8: $spacer * 2,
+        9: $spacer * 2.25,
+        10: $spacer * 2.5
+);
