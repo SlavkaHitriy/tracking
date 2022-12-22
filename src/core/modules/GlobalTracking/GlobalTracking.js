@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import mapboxgl from 'mapbox-gl'
+import mapboxgl from '!mapbox-gl'
 
 // Styles
 import styles from './index.module.scss'
