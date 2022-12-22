@@ -18,3 +18,17 @@
     background-position: center center;
     background-size: $size;
 }
+
+@mixin customScroll {
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $grayLight;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $secondary;
+    }
+}

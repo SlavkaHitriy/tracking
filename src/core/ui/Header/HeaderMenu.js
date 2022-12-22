@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import cn from 'classnames'
 import { NavLink } from 'react-router-dom'
+import { useToggle } from '../../hooks/useToggle'
 
 // Styles
 import styles from './index.module.scss'
@@ -15,9 +16,8 @@ import icon5 from '../../../assets/images/icon5.svg'
 import icon6 from '../../../assets/images/icon6.svg'
 
 export const HeaderMenu = () => {
-    const [openedMenu, setOpenedMenu] = useState(false)
-    const toggleMenu = () => setOpenedMenu(!openedMenu)
-
+    const {isOpened, toggleIsOpened} = useToggle()
+    const menuEl = useRef()
     const menuItems = useRef([
         {
             id: 1,
@@ -69,15 +69,26 @@ export const HeaderMenu = () => {
         },
     ])
 
+    const handleClick = e => {
+        if (isOpened && !menuEl.current.contains(e.target)) {
+            toggleIsOpened()
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('click', handleClick)
+        return () => document.removeEventListener('click', handleClick)
+    }, [isOpened])
+
     return (
-        <div className={styles.headerMenu}>
+        <div ref={menuEl} className={styles.headerMenu}>
             <button className={cn(styles.headerMenuBtn, {
-                [styles.headerMenuBtnActive]: openedMenu,
-            })} type={'button'} onClick={toggleMenu}>
+                [styles.headerMenuBtnActive]: isOpened,
+            })} type={'button'} onClick={toggleIsOpened}>
                 App Menu <img src={arrow} alt='arrow'/>
             </button>
             {
-                openedMenu && (
+                isOpened && (
                     <div className={styles.headerMenuContent}>
                         {
                             menuItems.current.map(submenu => (

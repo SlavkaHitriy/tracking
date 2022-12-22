@@ -1,0 +1,30 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.input {
+    background-color: $white;
+    border: 1px solid $grayLight;
+    width: 100%;
+    color: $primary;
+    padding: 11px 15px;
+    border-radius: 10px;
+}
+
+.inputWrap {
+    position: relative;
+}
+
+.inputAccent {
+    border-color: $secondary;
+}
+
+.inputError {
+    border-color: $red;
+}
+
+.inputErrorText {
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 0;
+    color: $red;
+}

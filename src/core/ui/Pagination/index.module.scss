@@ -1,0 +1,52 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.pagination {
+    display: flex;
+    align-items: center;
+}
+
+.paginationItemPrev {
+    transform: rotate(180deg);
+}
+
+.paginationItem {
+    transition: all .15s;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    @include centerFlex;
+    flex-shrink: 0;
+    cursor: pointer;
+    user-select: none;
+
+    svg {
+        width: 13px;
+        height: 13px;
+        fill: $primary;
+    }
+
+    &:hover {
+        background-color: $secondary;
+        color: $white;
+
+        svg {
+            fill: $white;
+        }
+    }
+
+    & + & {
+        margin-left: 10px;
+    }
+}
+
+.paginationItemActive {
+    background-color: $secondary;
+    color: $white;
+    pointer-events: none;
+
+    svg {
+        fill: $white;
+    }
+}
