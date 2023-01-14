@@ -1,8 +1,13 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import cn from 'classnames'
 
 // Styles
 import styles from './index.module.scss'
+
+// Data
+import { trackersData } from '../../../data/trackers'
+import { statusesData } from '../../../data/statuses'
+import { shipmentsData } from '../../../data/shipments'
 
 // Components
 import { SvgSprite } from '../SvgSprite/SvgSprite'
@@ -20,106 +25,11 @@ import { Td } from '../TableComponents/Td'
 import { Status } from '../Status'
 import { Pagination } from '../Pagination'
 
-export const MainInfo = ({title}) => {
+export const MainInfo = ({ title, setOpenedNewData, setOpenedBriefInfo }) => {
     const searchInp = useInput('')
-
-    const trackers = useRef([
-        {
-            id: 1,
-            name: 'Total Trackers',
-            count: 23,
-            color: '#9E9E9E',
-        },
-        {
-            id: 2,
-            name: 'Ready',
-            count: 1,
-            color: '#262B40',
-        },
-        {
-            id: 3,
-            name: 'Tracking',
-            count: 10,
-            color: '#19A872',
-        },
-        {
-            id: 4,
-            name: 'Completed',
-            count: 2,
-            color: '#0061FF',
-        },
-    ])
-    const statuses = useRef([
-        {
-            id: 1,
-            name: 'All status',
-            value: 0,
-        },
-        {
-            id: 2,
-            name: 'Ready',
-            value: 1,
-        },
-        {
-            id: 3,
-            name: 'Tracking',
-            value: 2,
-        },
-        {
-            id: 4,
-            name: 'Completed',
-            value: 3,
-        },
-        {
-            id: 5,
-            name: 'Documentation',
-            value: 4,
-        },
-    ])
-    const items = useRef([
-        {
-            id: 1,
-            name: 'Shipment 101',
-            status: 2,
-            date: '11/01/22 12:23PM',
-        },
-        {
-            id: 2,
-            name: 'Shipment 102',
-            status: 1,
-            date: '11/01/22 12:33PM',
-        },
-        {
-            id: 3,
-            name: 'Shipment 103',
-            status: 2,
-            date: '11/01/22 12:23PM',
-        },
-        {
-            id: 4,
-            name: 'Shipment 104',
-            status: 2,
-            date: '11/01/22 12:23PM',
-        },
-        {
-            id: 5,
-            name: 'Shipment 105',
-            status: 4,
-            date: '11/01/22 12:23PM',
-        },
-        {
-            id: 6,
-            name: 'Shipment 106',
-            status: 2,
-            date: '11/01/22 12:23PM',
-        },
-        {
-            id: 7,
-            name: 'Shipment 099',
-            status: 3,
-            date: '11/01/22 12:23PM',
-        },
-    ])
+    const trackers = useRef(trackersData)
+    const statuses = useRef(statusesData)
+    const items = useRef(shipmentsData)
 
     return (
         <div className={styles.info}>
@@ -129,25 +39,40 @@ export const MainInfo = ({title}) => {
                         <SvgSprite className={'mr-3'} spriteID={'track'} />
                         {title}
                     </Title>
-                    <Button className={cn(styles.infoTitleBtn, 'ml-3')} plus />
+                    <Button
+                        className={cn(styles.infoTitleBtn, 'ml-3')}
+                        onClick={() => setOpenedNewData(true)}
+                        plus
+                    />
                 </div>
                 <div className={styles.infoHeaderTrackers}>
-                    {
-                        trackers.current.map(tracker => (
-                            <div className={styles.infoHeaderTracker} key={tracker.id}>
-                                <div className={cn(styles.infoHeaderTrackerCount, 'mb-1')}>
-                                    {tracker.count > 9 ? tracker.count : '0' + tracker.count}
-                                </div>
-                                <span
-                                    className={cn(styles.infoHeaderTrackerSeparator, 'mb-3')}
-                                    style={{backgroundColor: tracker.color}}
-                                />
-                                <div className={styles.infoHeaderTrackerName}>
-                                    {tracker.name}
-                                </div>
+                    {trackers.current.map((tracker) => (
+                        <div
+                            className={styles.infoHeaderTracker}
+                            key={tracker.id}
+                        >
+                            <div
+                                className={cn(
+                                    styles.infoHeaderTrackerCount,
+                                    'mb-1'
+                                )}
+                            >
+                                {tracker.count > 9
+                                    ? tracker.count
+                                    : '0' + tracker.count}
                             </div>
-                        ))
-                    }
+                            <span
+                                className={cn(
+                                    styles.infoHeaderTrackerSeparator,
+                                    'mb-3'
+                                )}
+                                style={{ backgroundColor: tracker.color }}
+                            />
+                            <div className={styles.infoHeaderTrackerName}>
+                                {tracker.name}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
             <div className={styles.infoContent}>
@@ -174,24 +99,18 @@ export const MainInfo = ({title}) => {
                             </Tr>
                         </THead>
                         <TBody>
-                            {
-                                items.current.map(item => (
-                                    <Tr key={item.id}>
-                                        <Td>
-                                            {item.name}
-                                        </Td>
-                                        <Td>
-                                            <Status code={item.status} />
-                                        </Td>
-                                        <Td>
-                                            {item.date}
-                                        </Td>
-                                        <Td>
-                                            <Button more/>
-                                        </Td>
-                                    </Tr>
-                                ))
-                            }
+                            {items.current.map((item) => (
+                                <Tr key={item.id}>
+                                    <Td>{item.name}</Td>
+                                    <Td>
+                                        <Status code={item.status} />
+                                    </Td>
+                                    <Td>{item.date}</Td>
+                                    <Td>
+                                        <Button more onClick={() => setOpenedBriefInfo(true)} />
+                                    </Td>
+                                </Tr>
+                            ))}
                         </TBody>
                     </Table>
                 </div>

@@ -1,0 +1,47 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.info {
+    position: absolute;
+    left: 500px;
+    top: 0;
+    background-color: $white;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 3px 6px rgba($black, .15);
+    padding: 20px 25px;
+    font-size: 17px;
+}
+
+.infoProgressWrap {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $grayLight;
+}
+
+.infoBox {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.infoItem {
+    flex-grow: 1;
+
+    & + & {
+        margin-left: 20px;
+    }
+}
+
+.infoName {
+    margin-bottom: 5px;
+}
+
+.infoValue {
+    font-weight: 700;
+}
+
+.infoBtn {
+    width: 100%;
+    margin-top: 50px;
+}

@@ -5,6 +5,28 @@
     transition: all .15s;
 }
 
+.btnStandard {
+    padding: 15px 20px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: 1px solid $grayLight;
+    background-color: $secondary;
+    color: $white;
+
+    &:hover {
+        filter: brightness(.8);
+    }
+}
+
+.btnDark {
+    background-color: $black;
+}
+
+.btnSecondary {
+    background-color: #F5F7FB;
+    color: $black;
+}
+
 .btnPlus {
     display: flex;
     align-items: center;
