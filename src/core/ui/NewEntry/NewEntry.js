@@ -17,13 +17,13 @@ import { useInput } from '../../hooks/useInput'
 import { Button } from '../Button'
 import { Progress } from '../Progress'
 
-export const NewEntry = ({ setOpenedNewData }) => {
+export const NewEntry = ({ setActivePopup }) => {
     const textarea = useInput("40' Steel Pipe, P66 Grade")
     const rigNames = useRef(rigNamesData)
     const assetTypes = useRef(assetTypesData)
     const serviceProviders = useRef(serviceProvidersData)
 
-    const closeNewEntry = () => setOpenedNewData(false)
+    const closeNewEntry = () => setActivePopup(null)
 
     return (
         <div className={styles.entry}>

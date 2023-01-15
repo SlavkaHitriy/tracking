@@ -1,0 +1,54 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.notes {
+    position: relative;
+}
+
+.notesTableWrap {
+    margin-left: -30px;
+    width: calc(100% + 60px);
+}
+
+.notesAdd {
+    background-color: $green;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(calc(-100% - 20px));
+}
+
+.notesLabel {
+    font-weight: 700;
+    margin: 20px 0 15px;
+    font-size: 15px;
+    display: block;
+}
+
+.notesTextarea {
+    border-radius: 10px;
+    width: 100%;
+    resize: none;
+    border: 1px solid $grayLight;
+    height: 160px;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+}
+
+.notesActions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.notesActionsBtn {
+    padding-left: 35px;
+    padding-right: 35px;
+
+    & + & {
+        margin-left: 15px;
+    }
+}
+
+.notesActionsBtnGreen {
+    background-color: $green;
+}

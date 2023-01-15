@@ -24,8 +24,9 @@ import { TBody } from '../TableComponents/TBody'
 import { Td } from '../TableComponents/Td'
 import { Status } from '../Status'
 import { Pagination } from '../Pagination'
+import { CountItem } from '../CountItem'
 
-export const MainInfo = ({ title, setOpenedNewData, setOpenedBriefInfo }) => {
+export const MainInfo = ({ title, setActivePopup }) => {
     const searchInp = useInput('')
     const trackers = useRef(trackersData)
     const statuses = useRef(statusesData)
@@ -41,37 +42,17 @@ export const MainInfo = ({ title, setOpenedNewData, setOpenedBriefInfo }) => {
                     </Title>
                     <Button
                         className={cn(styles.infoTitleBtn, 'ml-3')}
-                        onClick={() => setOpenedNewData(true)}
+                        onClick={() => setActivePopup('new')}
                         plus
                     />
                 </div>
                 <div className={styles.infoHeaderTrackers}>
                     {trackers.current.map((tracker) => (
-                        <div
+                        <CountItem
                             className={styles.infoHeaderTracker}
+                            tracker={tracker}
                             key={tracker.id}
-                        >
-                            <div
-                                className={cn(
-                                    styles.infoHeaderTrackerCount,
-                                    'mb-1'
-                                )}
-                            >
-                                {tracker.count > 9
-                                    ? tracker.count
-                                    : '0' + tracker.count}
-                            </div>
-                            <span
-                                className={cn(
-                                    styles.infoHeaderTrackerSeparator,
-                                    'mb-3'
-                                )}
-                                style={{ backgroundColor: tracker.color }}
-                            />
-                            <div className={styles.infoHeaderTrackerName}>
-                                {tracker.name}
-                            </div>
-                        </div>
+                        />
                     ))}
                 </div>
             </div>
@@ -107,7 +88,12 @@ export const MainInfo = ({ title, setOpenedNewData, setOpenedBriefInfo }) => {
                                     </Td>
                                     <Td>{item.date}</Td>
                                     <Td>
-                                        <Button more onClick={() => setOpenedBriefInfo(true)} />
+                                        <Button
+                                            more
+                                            onClick={() =>
+                                                setActivePopup('brief')
+                                            }
+                                        />
                                     </Td>
                                 </Tr>
                             ))}

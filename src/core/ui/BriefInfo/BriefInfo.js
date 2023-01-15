@@ -10,7 +10,7 @@ import { briefInfoProgressData } from '../../../data/briefInfoProgress'
 import { Progress } from '../Progress'
 import { Button } from '../Button'
 
-export const BriefInfo = ({ setOpenedBriefInfo }) => {
+export const BriefInfo = ({ setActivePopup }) => {
     return (
         <div className={styles.info}>
             <div className={styles.infoProgressWrap}>
@@ -41,7 +41,7 @@ export const BriefInfo = ({ setOpenedBriefInfo }) => {
             <Button
                 className={styles.infoBtn}
                 text={'More detail'}
-                onClick={() => setOpenedBriefInfo(false)}
+                onClick={() => setActivePopup('info')}
                 standard
             />
         </div>

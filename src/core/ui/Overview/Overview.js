@@ -1,0 +1,114 @@
+import React from 'react'
+import cn from 'classnames'
+
+// Styles
+import styles from './index.module.scss'
+
+// Data
+import { overviewProgressData } from '../../../data/overviewProgress'
+
+// Components
+import { Progress } from '../Progress'
+import { Title } from '../Title'
+import { SvgSprite } from '../SvgSprite/SvgSprite'
+import { GridBox } from '../GridBox'
+import { GridName } from '../GridName'
+import { GridValue } from '../GridValue'
+
+export const Overview = () => {
+    return (
+        <div className={styles.overview}>
+            <div className={styles.overviewContent}>
+                <Title className={cn(styles.overviewTitle, 'mb-6')}>
+                    <SvgSprite className={'mr-3'} spriteID={'track'} />
+                    Commercial: 23423244
+                </Title>
+                <GridBox template={'60% 40%'} className={styles.overviewBox}>
+                    <div>
+                        <GridName>Rig Name</GridName>
+                        <GridValue>Ocean Rig 107</GridValue>
+                    </div>
+                    <div>
+                        <GridName>Asset Type</GridName>
+                        <GridValue>Drill Pipe</GridValue>
+                    </div>
+                    <div>
+                        <GridName>Service Provider</GridName>
+                        <GridValue>ACME Company</GridValue>
+                    </div>
+                    <div>
+                        <GridName>Archive</GridName>
+                        <GridValue>1000233</GridValue>
+                    </div>
+                    <div>
+                        <GridName>Commercial Invoice</GridName>
+                        <GridValue>23423244</GridValue>
+                    </div>
+                    <div>
+                        <GridName>Bundles</GridName>
+                        <GridValue>None</GridValue>
+                    </div>
+                </GridBox>
+                <GridBox template={'60% 40%'} className={styles.overviewBox}>
+                    <div>
+                        <GridName>Create Date</GridName>
+                        <GridValue>October 1, 2022 9:36 AM</GridValue>
+                    </div>
+                    <div>
+                        <GridName>Created By</GridName>
+                        <GridValue>Bob Moore</GridValue>
+                    </div>
+                    <div>
+                        <GridName>Last Updated</GridName>
+                        <GridValue>November 08, 2022 12:02 PM</GridValue>
+                    </div>
+                    <div>
+                        <GridName>Last Updated By</GridName>
+                        <GridValue>John Smally</GridValue>
+                    </div>
+                </GridBox>
+                <div className={styles.overviewWrap}>
+                    <GridBox columns={2}>
+                        <div>
+                            <div className={styles.overviewBottomName}>
+                                Tracked Items
+                            </div>
+                            <div className={styles.overviewBottomValue}>50</div>
+                        </div>
+                        <div>
+                            <div className={styles.overviewBottomName}>
+                                Active Time
+                            </div>
+                            <div className={styles.overviewBottomValue}>
+                                2 Days
+                            </div>
+                        </div>
+                        <div>
+                            <div className={styles.overviewBottomName}>
+                                Idle Time
+                            </div>
+                            <div className={styles.overviewBottomValue}>
+                                18:05
+                            </div>
+                        </div>
+                        <div>
+                            <div className={styles.overviewBottomName}>
+                                Total Trip
+                            </div>
+                            <div className={styles.overviewBottomValue}>
+                                2 Weeks
+                            </div>
+                        </div>
+                    </GridBox>
+                </div>
+            </div>
+            <div className={styles.overviewProgress}>
+                <Progress
+                    title={'Progress'}
+                    subtitle={'Steps'}
+                    data={overviewProgressData}
+                />
+            </div>
+        </div>
+    )
+}

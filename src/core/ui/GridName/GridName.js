@@ -4,12 +4,12 @@ import cn from 'classnames'
 // Styles
 import styles from './index.module.scss'
 
-export const Td = ({className, children}) => {
+export const GridName = ({className, children}) => {
     return (
-        <td className={cn(styles.td, {
-            [className]: className,
+        <div className={cn(styles.gridName, {
+            [className]: className
         })}>
             {children}
-        </td>
+        </div>
     )
 }

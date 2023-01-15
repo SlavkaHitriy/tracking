@@ -7,7 +7,19 @@ import styles from './index.module.scss'
 // Components
 import { SvgSprite } from '../SvgSprite/SvgSprite'
 
-export const Button = ({type, className, text, plus, onClick, more, standard, dark, secondary}) => {
+export const Button = ({
+    type,
+    className,
+    text,
+    plus,
+    onClick,
+    more,
+    standard,
+    dark,
+    secondary,
+    children,
+    green
+}) => {
     return (
         <button
             className={cn(styles.btn, {
@@ -21,13 +33,16 @@ export const Button = ({type, className, text, plus, onClick, more, standard, da
             type={type || 'button'}
             onClick={onClick}
         >
-            {plus && <SvgSprite spriteID={'plus'}/>}
+            {plus && <SvgSprite spriteID={'plus'} />}
             {text && text}
-            {more && (<>
-                <span/>
-                <span/>
-                <span/>
-            </>)}
+            {children && children}
+            {more && (
+                <>
+                    <span />
+                    <span />
+                    <span />
+                </>
+            )}
         </button>
     )
 }

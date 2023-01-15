@@ -1,0 +1,56 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.overview {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.overviewProgress {
+    flex-grow: 1;
+    margin-left: 50px;
+}
+
+.overviewContent {
+    max-width: 400px;
+    width: 100%;
+    font-size: 15px;
+}
+
+.overviewTitle {
+    display: flex;
+    align-items: center;
+
+    svg {
+        stroke: $primary;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.overviewBox {
+    & + & {
+        margin-top: 25px;
+        padding-top: 25px;
+        border-top: 1px solid $grayLight;
+    }
+}
+
+.overviewWrap {
+    border-radius: 10px;
+    background-color: #F5F7FB;
+    border: 1px solid $grayLight;
+    padding: 25px 20px;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+.overviewBottomName {
+    margin-bottom: 15px;
+}
+
+.overviewBottomValue {
+    font-size: 20px;
+    color: $secondary;
+}

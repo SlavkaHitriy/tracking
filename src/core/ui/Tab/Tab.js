@@ -4,15 +4,15 @@ import cn from 'classnames'
 // Styles
 import styles from './index.module.scss'
 
-export const Tr = ({ className, children, onClick }) => {
+export const Tab = ({ active, children, onClick }) => {
     return (
-        <tr
-            className={cn(styles.tr, {
-                [className]: className,
+        <div
+            className={cn(styles.tab, {
+                [styles.tabActive]: active,
             })}
             onClick={onClick}
         >
             {children}
-        </tr>
+        </div>
     )
 }

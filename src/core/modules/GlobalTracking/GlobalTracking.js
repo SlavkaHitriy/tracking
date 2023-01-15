@@ -4,11 +4,16 @@ import mapboxgl from '!mapbox-gl'
 // Styles
 import styles from './index.module.scss'
 
+// Data
+import { globalTrackingTabsData } from '../../../data/globalTrackingTabs'
+
 // Components
 import { PageWrapper } from '../../ui/PageWrapper'
 import { MainInfo } from '../../ui/MainInfo'
 import { NewEntry } from '../../ui/NewEntry'
 import { BriefInfo } from '../../ui/BriefInfo'
+import { Info } from '../../ui/Info'
+import { NewBundle } from '../../ui/NewBundle'
 
 mapboxgl.accessToken =
     'pk.eyJ1Ijoic2xhdmthaGl0cml5IiwiYSI6ImNsYnpmNmV5cTBiMHIzbnFxejhibXJqd3MifQ.kaeD3uS6BI6qF1wV0w4lrw'
@@ -20,8 +25,8 @@ export const GlobalTracking = () => {
     const [lat, setLat] = useState(42.35)
     const [zoom, setZoom] = useState(9)
 
-    const [openedNewData, setOpenedNewData] = useState(false)
-    const [openedBriefInfo, setOpenedBriefInfo] = useState(false)
+    const [activePopup, setActivePopup] = useState(null)
+    const [activeTab, setActiveTab] = useState(globalTrackingTabsData[0].value)
 
     const initMap = () => {
         if (!map.current && mapContainer.current) {
@@ -54,15 +59,24 @@ export const GlobalTracking = () => {
             <div className={styles.tracking}>
                 <MainInfo
                     title={'Global Tracking'}
-                    setOpenedNewData={setOpenedNewData}
-                    setOpenedBriefInfo={setOpenedBriefInfo}
+                    setActivePopup={setActivePopup}
                 />
                 <div ref={mapContainer} className={styles.trackingMap} />
-                {openedNewData && (
-                    <NewEntry setOpenedNewData={setOpenedNewData} />
+                {activePopup === 'new' && (
+                    <NewEntry setActivePopup={setActivePopup} />
                 )}
-                {openedBriefInfo && (
-                    <BriefInfo setOpenedBriefInfo={setOpenedBriefInfo} />
+                {activePopup === 'brief' && (
+                    <BriefInfo setActivePopup={setActivePopup} />
+                )}
+                {activePopup === 'info' && (
+                    <Info
+                        activeTab={activeTab}
+                        setActiveTab={setActiveTab}
+                        setActivePopup={setActivePopup}
+                    />
+                )}
+                {activePopup === 'newBundle' && (
+                    <NewBundle setActivePopup={setActivePopup} />
                 )}
             </div>
         </PageWrapper>
