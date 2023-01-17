@@ -54,3 +54,21 @@
     font-size: 20px;
     color: $secondary;
 }
+
+.overviewFullWidth {
+    grid-column: 1/-1;
+}
+
+.overviewTracker {
+    display: flex;
+    align-items: center;
+
+    span {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-left: 15px;
+        background-color: $green;
+    }
+}

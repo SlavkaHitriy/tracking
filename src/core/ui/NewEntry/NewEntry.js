@@ -1,13 +1,10 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import cn from 'classnames'
 
 // Styles
 import styles from './index.module.scss'
 
 // Data
-import { rigNamesData } from '../../../data/rigNames'
-import { assetTypesData } from '../../../data/assetTypes'
-import { serviceProvidersData } from '../../../data/serviceProviders'
 import { newEntryProgressData } from '../../../data/newEntryProgress'
 
 // Components
@@ -16,12 +13,11 @@ import { Select } from '../Select'
 import { useInput } from '../../hooks/useInput'
 import { Button } from '../Button'
 import { Progress } from '../Progress'
+import { IndoorFields } from './IndoorFields'
+import { GlobalFields } from './GlobalFields'
 
-export const NewEntry = ({ setActivePopup }) => {
+export const NewEntry = ({ setActivePopup, indoor }) => {
     const textarea = useInput("40' Steel Pipe, P66 Grade")
-    const rigNames = useRef(rigNamesData)
-    const assetTypes = useRef(assetTypesData)
-    const serviceProviders = useRef(serviceProvidersData)
 
     const closeNewEntry = () => setActivePopup(null)
 
@@ -30,45 +26,7 @@ export const NewEntry = ({ setActivePopup }) => {
             <Title className={'mb-6'}>New Entry</Title>
             <div className={styles.entryInner}>
                 <div className={cn(styles.entryInfo, 'mr-7')}>
-                    <div className={styles.entryItem}>
-                        <div className={styles.entryItemName}>
-                            Commercial Invoice
-                        </div>
-                        <div className={styles.entryItemValue}>23423244</div>
-                    </div>
-                    <div className={styles.entryItem}>
-                        <div className={styles.entryItemName}>Pedimento #</div>
-                        <div className={styles.entryItemValue}>10287870</div>
-                    </div>
-                    <div className={styles.entryItem}>
-                        <div className={styles.entryItemName}>Rig Name</div>
-                        <div className={styles.entryItemValue}>
-                            <Select
-                                className={styles.entryItemSelect}
-                                values={rigNames.current}
-                            />
-                        </div>
-                    </div>
-                    <div className={styles.entryItem}>
-                        <div className={styles.entryItemName}>Asset Type</div>
-                        <div className={styles.entryItemValue}>
-                            <Select
-                                className={styles.entryItemSelect}
-                                values={assetTypes.current}
-                            />
-                        </div>
-                    </div>
-                    <div className={styles.entryItem}>
-                        <div className={styles.entryItemName}>
-                            Service Provider
-                        </div>
-                        <div className={styles.entryItemValue}>
-                            <Select
-                                className={styles.entryItemSelect}
-                                values={serviceProviders.current}
-                            />
-                        </div>
-                    </div>
+                    {indoor ? <IndoorFields /> : <GlobalFields />}
                     <div className={styles.entryTextareaWrap}>
                         <label
                             className={styles.entryTextareaLabel}

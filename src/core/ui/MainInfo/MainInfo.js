@@ -26,7 +26,7 @@ import { Status } from '../Status'
 import { Pagination } from '../Pagination'
 import { CountItem } from '../CountItem'
 
-export const MainInfo = ({ title, setActivePopup }) => {
+export const MainInfo = ({ title, setActivePopup, icon }) => {
     const searchInp = useInput('')
     const trackers = useRef(trackersData)
     const statuses = useRef(statusesData)
@@ -37,7 +37,7 @@ export const MainInfo = ({ title, setActivePopup }) => {
             <div className={styles.infoHeader}>
                 <div className={cn(styles.infoTitleWrap, 'mb-5')}>
                     <Title className={styles.infoTitle}>
-                        <SvgSprite className={'mr-3'} spriteID={'track'} />
+                        <SvgSprite className={'mr-3'} spriteID={icon} />
                         {title}
                     </Title>
                     <Button

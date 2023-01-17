@@ -14,11 +14,12 @@ import { NewEntry } from '../../ui/NewEntry'
 import { BriefInfo } from '../../ui/BriefInfo'
 import { InfoGlobal } from '../../ui/InfoGlobal'
 import { NewBundle } from '../../ui/NewBundle'
+import { InfoIndoor } from '../../ui/InfoIndoor'
 
 mapboxgl.accessToken =
     'pk.eyJ1Ijoic2xhdmthaGl0cml5IiwiYSI6ImNsYnpmNmV5cTBiMHIzbnFxejhibXJqd3MifQ.kaeD3uS6BI6qF1wV0w4lrw'
 
-export const GlobalTracking = () => {
+export const IndoorTracking = () => {
     const mapContainer = useRef(null)
     const map = useRef(null)
     const [lng, setLng] = useState(-70.9)
@@ -58,19 +59,19 @@ export const GlobalTracking = () => {
         <PageWrapper>
             <div className={styles.tracking}>
                 <MainInfo
-                    title={'Global Tracking'}
-                    icon={'track'}
+                    title={'Indoor Tracking'}
+                    icon={'indoor-track'}
                     setActivePopup={setActivePopup}
                 />
                 <div ref={mapContainer} className={styles.trackingMap} />
                 {activePopup === 'new' && (
-                    <NewEntry setActivePopup={setActivePopup} />
+                    <NewEntry setActivePopup={setActivePopup} indoor />
                 )}
                 {activePopup === 'brief' && (
-                    <BriefInfo setActivePopup={setActivePopup} />
+                    <BriefInfo setActivePopup={setActivePopup} indoor />
                 )}
                 {activePopup === 'info' && (
-                    <InfoGlobal
+                    <InfoIndoor
                         activeTab={activeTab}
                         setActiveTab={setActiveTab}
                         setActivePopup={setActivePopup}

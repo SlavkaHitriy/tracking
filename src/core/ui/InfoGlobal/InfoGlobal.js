@@ -17,7 +17,7 @@ import { Notes } from '../Notes'
 import { Attachments } from '../Attachments'
 import { TrackingData } from '../TrackingData'
 
-export const Info = ({ activeTab, setActiveTab, setActivePopup }) => {
+export const InfoGlobal = ({ activeTab, setActiveTab, setActivePopup }) => {
     return (
         <div className={styles.info}>
             <Title className={cn(styles.infoTitle, 'mb-3')}>
