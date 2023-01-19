@@ -6,19 +6,19 @@
     height: 100%;
     left: 500px;
     top: 0;
-    z-index: 100;
+    z-index: 2;
     max-width: 800px;
     width: 100%;
     background-color: $white;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    box-shadow: 0 3px 6px rgba($black, .15);
     padding: 25px;
     overflow-y: auto;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     @include customScroll;
+    box-shadow: 5px 0 20px 5px rgba($black, .15);
 }
 
 .entryInner {

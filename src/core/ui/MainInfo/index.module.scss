@@ -11,6 +11,8 @@
     overflow-y: auto;
     height: calc(100vh - 60px);
     @include customScroll;
+    position: relative;
+    z-index: 4;
 }
 
 .infoTitle {
