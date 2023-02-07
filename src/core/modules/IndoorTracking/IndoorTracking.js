@@ -55,6 +55,8 @@ export const IndoorTracking = () => {
         return () => clearInterval(tempInterval)
     }, [])
 
+    // Test comment
+
     return (
         <PageWrapper>
             <div className={styles.tracking}>
