@@ -9,7 +9,7 @@ import { prioritySelectData } from '../../../data/prioritySelect'
 import { statusSelectData } from '../../../data/statusSelect'
 
 // Components
-import { Select } from '../Select'
+import { Select } from '../common/Select'
 
 export const IndoorFields = () => {
     const trackers = useRef(trackersSelectData)

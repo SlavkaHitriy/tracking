@@ -1,0 +1,50 @@
+@import '../../../../assets/styles/includes/vars';
+@import '../../../../assets/styles/includes/mixins';
+
+.status {
+    display: flex;
+    align-items: center;
+}
+
+.statusRoute {
+    color: $green;
+
+    span {
+        width: 10px;
+        height: 10px;
+        background-color: $green;
+        border-radius: 50%;
+        margin-left: 5px;
+        animation: showLoader 1s infinite;
+
+        @keyframes showLoader {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        &:nth-child(2) {
+            animation-delay: .333s;
+        }
+
+        &:last-child {
+            animation-delay: .666s;
+        }
+    }
+}
+
+.statusComplete {
+    color: $secondary;
+
+    svg {
+        width: 10px;
+        height: 10px;
+        fill: $secondary;
+    }
+}

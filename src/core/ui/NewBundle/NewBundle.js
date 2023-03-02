@@ -10,9 +10,9 @@ import { serviceProvidersData } from '../../../data/serviceProviders'
 import { trackersSelectData } from '../../../data/trackersSelect'
 
 // Components
-import { Title } from '../Title'
-import { Select } from '../Select'
-import { Button } from '../Button'
+import { Title } from '../common/Title'
+import { Select } from '../common/Select'
+import { Button } from '../common/Button'
 
 export const NewBundle = ({ setActivePopup }) => {
     const trackers = useRef(trackersSelectData)

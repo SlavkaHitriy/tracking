@@ -9,17 +9,17 @@ import { trackingDataTabData } from '../../../data/trackingDataTab'
 import { dataTypesData } from '../../../data/dataTypes'
 
 // Components
-import { Select } from '../Select'
-import { GridBox } from '../GridBox'
-import { Tab } from '../Tab'
-import { THead } from '../TableComponents/THead'
-import { Tr } from '../TableComponents/Tr'
-import { Th } from '../TableComponents/Th'
-import { TBody } from '../TableComponents/TBody'
-import { Td } from '../TableComponents/Td'
-import { Table } from '../TableComponents/Table'
-import { GridName } from '../GridName'
-import { GridValue } from '../GridValue'
+import { Select } from '../common/Select'
+import { GridBox } from '../common/GridBox'
+import { Tab } from '../common/Tab'
+import { THead } from '../common/TableComponents/THead'
+import { Tr } from '../common/TableComponents/Tr'
+import { Th } from '../common/TableComponents/Th'
+import { TBody } from '../common/TableComponents/TBody'
+import { Td } from '../common/TableComponents/Td'
+import { Table } from '../common/TableComponents/Table'
+import { GridName } from '../common/GridName'
+import { GridValue } from '../common/GridValue'
 
 export const TrackingData = ({indoor}) => {
     const data = useRef(trackingDataTabData)

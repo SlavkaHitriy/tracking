@@ -62,7 +62,7 @@ export const HeaderMenu = () => {
                 {
                     id: 3,
                     name: 'System Configuration',
-                    link: '/configuration',
+                    link: '/settings',
                     icon: icon6,
                 },
             ]

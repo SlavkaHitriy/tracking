@@ -8,7 +8,7 @@ import { briefInfoProgressData } from '../../../data/briefInfoProgress'
 
 // Components
 import { Progress } from '../Progress'
-import { Button } from '../Button'
+import { Button } from '../common/Button'
 
 export const BriefInfo = ({ setActivePopup, indoor }) => {
     return (

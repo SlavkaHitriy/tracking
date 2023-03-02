@@ -9,7 +9,7 @@ import { assetTypesData } from '../../../data/assetTypes'
 import { serviceProvidersData } from '../../../data/serviceProviders'
 
 // Components
-import { Select } from '../Select'
+import { Select } from '../common/Select'
 
 export const GlobalFields = () => {
     const rigNames = useRef(rigNamesData)

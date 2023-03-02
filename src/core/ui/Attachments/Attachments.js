@@ -5,13 +5,13 @@ import cn from 'classnames'
 import styles from './index.module.scss'
 
 // Components
-import { THead } from '../TableComponents/THead'
-import { Tr } from '../TableComponents/Tr'
-import { Th } from '../TableComponents/Th'
-import { TBody } from '../TableComponents/TBody'
-import { Td } from '../TableComponents/Td'
-import { Table } from '../TableComponents/Table'
-import { Button } from '../Button'
+import { THead } from '../common/TableComponents/THead'
+import { Tr } from '../common/TableComponents/Tr'
+import { Th } from '../common/TableComponents/Th'
+import { TBody } from '../common/TableComponents/TBody'
+import { Td } from '../common/TableComponents/Td'
+import { Table } from '../common/TableComponents/Table'
+import { Button } from '../common/Button'
 import { useInput } from '../../hooks/useInput'
 
 export const Attachments = () => {

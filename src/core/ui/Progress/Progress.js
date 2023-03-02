@@ -5,7 +5,7 @@ import cn from 'classnames'
 import styles from './index.module.scss'
 
 // Components
-import { Title } from '../Title'
+import { Title } from '../common/Title'
 
 export const Progress = ({ title, subtitle, data }) => {
     return (

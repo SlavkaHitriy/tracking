@@ -8,10 +8,10 @@ import styles from './index.module.scss'
 import { newEntryProgressData } from '../../../data/newEntryProgress'
 
 // Components
-import { Title } from '../Title'
-import { Select } from '../Select'
+import { Title } from '../common/Title'
+import { Select } from '../common/Select'
 import { useInput } from '../../hooks/useInput'
-import { Button } from '../Button'
+import { Button } from '../common/Button'
 import { Progress } from '../Progress'
 import { IndoorFields } from './IndoorFields'
 import { GlobalFields } from './GlobalFields'

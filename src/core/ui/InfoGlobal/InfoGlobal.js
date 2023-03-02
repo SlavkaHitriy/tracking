@@ -8,10 +8,10 @@ import styles from './index.module.scss'
 import { globalTrackingTabsData } from '../../../data/globalTrackingTabs'
 
 // Components
-import { Title } from '../Title'
-import { Button } from '../Button'
+import { Title } from '../common/Title'
+import { Button } from '../common/Button'
 import { Overview } from '../Overview'
-import { Tab } from '../Tab'
+import { Tab } from '../common/Tab'
 import { Bundles } from '../Bundles'
 import { Notes } from '../Notes'
 import { Attachments } from '../Attachments'

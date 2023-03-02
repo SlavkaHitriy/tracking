@@ -9,11 +9,11 @@ import { overviewProgressData } from '../../../data/overviewProgress'
 
 // Components
 import { Progress } from '../Progress'
-import { Title } from '../Title'
-import { SvgSprite } from '../SvgSprite/SvgSprite'
-import { GridBox } from '../GridBox'
-import { GridName } from '../GridName'
-import { GridValue } from '../GridValue'
+import { Title } from '../common/Title'
+import { SvgSprite } from '../common/SvgSprite/SvgSprite'
+import { GridBox } from '../common/GridBox'
+import { GridName } from '../common/GridName'
+import { GridValue } from '../common/GridValue'
 
 export const Overview = ({ indoor }) => {
     return (
