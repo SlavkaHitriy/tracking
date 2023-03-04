@@ -13,6 +13,8 @@
     @include customScroll;
     position: relative;
     z-index: 4;
+    display: flex;
+    flex-direction: column;
 }
 
 .infoTitle {
@@ -62,6 +64,7 @@
     padding: 15px 20px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid $grayLight;
 }
 
 .infoContentSearch {
@@ -73,18 +76,13 @@
 }
 
 .infoContent {
-    display: flex;
-    flex-direction: column;
     flex-grow: 1;
     overflow: hidden;
-}
-
-.infoTableWrap {
-    flex-grow: 1;
 }
 
 .infoPagination {
     padding: 25px;
     display: flex;
     justify-content: center;
+    border-top: 1px solid $grayLight;
 }

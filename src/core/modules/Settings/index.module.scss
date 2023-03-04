@@ -4,6 +4,9 @@
 .settings {
     width: 100%;
     background-color: $white;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
 }
 
 .settingsTitle {
@@ -27,4 +30,12 @@
     display: flex;
     margin-left: -10px;
     margin-bottom: -3px;
+}
+
+.settingsWrap {
+    flex-grow: 1;
+}
+
+.settingCompany {
+    padding: 40px 50px;
 }

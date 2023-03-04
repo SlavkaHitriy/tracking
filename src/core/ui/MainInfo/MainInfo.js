@@ -1,30 +1,29 @@
-import React, { useRef, useState } from 'react'
 import cn from 'classnames'
+import React, { useRef, useState } from 'react'
 
-// Styles
-import styles from './index.module.scss'
-
+import { shipmentsData } from '../../../data/shipments'
+import { statusesData } from '../../../data/statuses'
 // Data
 import { trackersData } from '../../../data/trackers'
-import { statusesData } from '../../../data/statuses'
-import { shipmentsData } from '../../../data/shipments'
-
+import { useInput } from '../../hooks/useInput'
+import { Button } from '../common/Button'
+import { CountItem } from '../common/CountItem'
+import { Input } from '../common/Input'
+import { Pagination } from '../common/Pagination'
+import { ScrollContent } from '../common/ScrollContent'
+import { Select } from '../common/Select'
+import { Status } from '../common/Status'
 // Components
 import { SvgSprite } from '../common/SvgSprite/SvgSprite'
-import { Title } from '../common/Title'
-import { Button } from '../common/Button'
-import { Select } from '../common/Select'
-import { Input } from '../common/Input'
-import { useInput } from '../../hooks/useInput'
-import { THead } from '../common/TableComponents/THead'
-import { Tr } from '../common/TableComponents/Tr'
-import { Th } from '../common/TableComponents/Th'
-import { Table } from '../common/TableComponents/Table'
 import { TBody } from '../common/TableComponents/TBody'
+import { THead } from '../common/TableComponents/THead'
+import { Table } from '../common/TableComponents/Table'
 import { Td } from '../common/TableComponents/Td'
-import { Status } from '../common/Status'
-import { Pagination } from '../common/Pagination'
-import { CountItem } from '../common/CountItem'
+import { Th } from '../common/TableComponents/Th'
+import { Tr } from '../common/TableComponents/Tr'
+import { Title } from '../common/Title'
+// Styles
+import styles from './index.module.scss'
 
 export const MainInfo = ({ title, setActivePopup, icon }) => {
     const searchInp = useInput('')
@@ -69,7 +68,7 @@ export const MainInfo = ({ title, setActivePopup, icon }) => {
                         {...searchInp}
                     />
                 </div>
-                <div className={styles.infoTableWrap}>
+                <ScrollContent>
                     <Table>
                         <THead>
                             <Tr>
@@ -99,7 +98,7 @@ export const MainInfo = ({ title, setActivePopup, icon }) => {
                             ))}
                         </TBody>
                     </Table>
-                </div>
+                </ScrollContent>
             </div>
             <div className={styles.infoPagination}>
                 <Pagination />
