@@ -1,0 +1,30 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.settings {
+    width: 100%;
+    background-color: $white;
+}
+
+.settingsTitle {
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+
+    svg {
+        stroke: $primary;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.settingsTop {
+    border-bottom: 1px solid $grayLight;
+    padding: 0 20px;
+}
+
+.settingsTabs {
+    display: flex;
+    margin-left: -10px;
+    margin-bottom: -3px;
+}

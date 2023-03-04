@@ -1,0 +1,134 @@
+@import '../../../../assets/styles/includes/vars';
+@import '../../../../assets/styles/includes/mixins';
+
+.select {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+}
+
+.selectContent {
+    .selectActive {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+            margin-left: auto;
+        }
+    }
+}
+
+.selectOpened {
+    z-index: 3;
+}
+
+.selectText {
+    margin-right: 5px;
+    user-select: none;
+    font-weight: 700;
+}
+
+.selectActive {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all .15s;
+    user-select: none;
+
+    svg {
+        width: 10px;
+        height: 10px;
+        fill: $primary;
+        transform: rotate(90deg);
+        transition: all .15s;
+        margin-left: 10px;
+    }
+
+    &:hover {
+        color: $secondary;
+
+        svg {
+            fill: $secondary;
+        }
+    }
+}
+
+.selectTextValue {
+    font-weight: 700;
+
+    span {
+        font-weight: 400;
+        margin-left: 5px;
+    }
+
+    @media (max-width: 768px) {
+        span {
+            font-size: 0;
+        }
+    }
+}
+
+.selectDrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    background-color: $white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 300px;
+    z-index: 3;
+    box-shadow: 0 5px 10px rgba($black, .15);
+    @include customScroll;
+}
+
+.selectItem {
+    transition: all .15s;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    position: relative;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: $grayLight;
+    }
+}
+
+.selectItemValue {
+    font-weight: 700;
+
+    span {
+        font-weight: 400;
+        margin-left: 5px;
+    }
+}
+
+.selectItemActive {
+    padding-right: 40px;
+}
+
+.selectItemCheck {
+    @include centerFlex;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $secondary;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    svg {
+        width: 11px;
+        height: 11px;
+        fill: $white;
+    }
+}

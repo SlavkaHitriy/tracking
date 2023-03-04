@@ -1,153 +1,59 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import cn from 'classnames'
 
 // Styles
 import styles from './index.module.scss'
 
+// Data
+import { trackersData } from '../../../data/trackers'
+import { statusesData } from '../../../data/statuses'
+import { shipmentsData } from '../../../data/shipments'
+
 // Components
-import { SvgSprite } from '../SvgSprite/SvgSprite'
-import { Title } from '../Title'
-import { Button } from '../Button'
-import { Select } from '../Select'
-import { Input } from '../Input'
+import { SvgSprite } from '../common/SvgSprite/SvgSprite'
+import { Title } from '../common/Title'
+import { Button } from '../common/Button'
+import { Select } from '../common/Select'
+import { Input } from '../common/Input'
 import { useInput } from '../../hooks/useInput'
-import { THead } from '../TableComponents/THead'
-import { Tr } from '../TableComponents/Tr'
-import { Th } from '../TableComponents/Th'
-import { Table } from '../TableComponents/Table'
-import { TBody } from '../TableComponents/TBody'
-import { Td } from '../TableComponents/Td'
-import { Status } from '../Status'
-import { Pagination } from '../Pagination'
+import { THead } from '../common/TableComponents/THead'
+import { Tr } from '../common/TableComponents/Tr'
+import { Th } from '../common/TableComponents/Th'
+import { Table } from '../common/TableComponents/Table'
+import { TBody } from '../common/TableComponents/TBody'
+import { Td } from '../common/TableComponents/Td'
+import { Status } from '../common/Status'
+import { Pagination } from '../common/Pagination'
+import { CountItem } from '../common/CountItem'
 
-export const MainInfo = ({title}) => {
+export const MainInfo = ({ title, setActivePopup, icon }) => {
     const searchInp = useInput('')
-
-    const trackers = useRef([
-        {
-            id: 1,
-            name: 'Total Trackers',
-            count: 23,
-            color: '#9E9E9E',
-        },
-        {
-            id: 2,
-            name: 'Ready',
-            count: 1,
-            color: '#262B40',
-        },
-        {
-            id: 3,
-            name: 'Tracking',
-            count: 10,
-            color: '#19A872',
-        },
-        {
-            id: 4,
-            name: 'Completed',
-            count: 2,
-            color: '#0061FF',
-        },
-    ])
-    const statuses = useRef([
-        {
-            id: 1,
-            name: 'All status',
-            value: 0,
-        },
-        {
-            id: 2,
-            name: 'Ready',
-            value: 1,
-        },
-        {
-            id: 3,
-            name: 'Tracking',
-            value: 2,
-        },
-        {
-            id: 4,
-            name: 'Completed',
-            value: 3,
-        },
-        {
-            id: 5,
-            name: 'Documentation',
-            value: 4,
-        },
-    ])
-    const items = useRef([
-        {
-            id: 1,
-            name: 'Shipment 101',
-            status: 2,
-            date: '11/01/22 12:23PM',
-        },
-        {
-            id: 2,
-            name: 'Shipment 102',
-            status: 1,
-            date: '11/01/22 12:33PM',
-        },
-        {
-            id: 3,
-            name: 'Shipment 103',
-            status: 2,
-            date: '11/01/22 12:23PM',
-        },
-        {
-            id: 4,
-            name: 'Shipment 104',
-            status: 2,
-            date: '11/01/22 12:23PM',
-        },
-        {
-            id: 5,
-            name: 'Shipment 105',
-            status: 4,
-            date: '11/01/22 12:23PM',
-        },
-        {
-            id: 6,
-            name: 'Shipment 106',
-            status: 2,
-            date: '11/01/22 12:23PM',
-        },
-        {
-            id: 7,
-            name: 'Shipment 099',
-            status: 3,
-            date: '11/01/22 12:23PM',
-        },
-    ])
+    const trackers = useRef(trackersData)
+    const statuses = useRef(statusesData)
+    const items = useRef(shipmentsData)
 
     return (
         <div className={styles.info}>
             <div className={styles.infoHeader}>
                 <div className={cn(styles.infoTitleWrap, 'mb-5')}>
                     <Title className={styles.infoTitle}>
-                        <SvgSprite className={'mr-3'} spriteID={'track'} />
+                        <SvgSprite className={'mr-3'} spriteID={icon} />
                         {title}
                     </Title>
-                    <Button className={cn(styles.infoTitleBtn, 'ml-3')} plus />
+                    <Button
+                        className={cn(styles.infoTitleBtn, 'ml-3')}
+                        onClick={() => setActivePopup('new')}
+                        plus
+                    />
                 </div>
                 <div className={styles.infoHeaderTrackers}>
-                    {
-                        trackers.current.map(tracker => (
-                            <div className={styles.infoHeaderTracker} key={tracker.id}>
-                                <div className={cn(styles.infoHeaderTrackerCount, 'mb-1')}>
-                                    {tracker.count > 9 ? tracker.count : '0' + tracker.count}
-                                </div>
-                                <span
-                                    className={cn(styles.infoHeaderTrackerSeparator, 'mb-3')}
-                                    style={{backgroundColor: tracker.color}}
-                                />
-                                <div className={styles.infoHeaderTrackerName}>
-                                    {tracker.name}
-                                </div>
-                            </div>
-                        ))
-                    }
+                    {trackers.current.map((tracker) => (
+                        <CountItem
+                            className={styles.infoHeaderTracker}
+                            tracker={tracker}
+                            key={tracker.id}
+                        />
+                    ))}
                 </div>
             </div>
             <div className={styles.infoContent}>
@@ -174,24 +80,23 @@ export const MainInfo = ({title}) => {
                             </Tr>
                         </THead>
                         <TBody>
-                            {
-                                items.current.map(item => (
-                                    <Tr key={item.id}>
-                                        <Td>
-                                            {item.name}
-                                        </Td>
-                                        <Td>
-                                            <Status code={item.status} />
-                                        </Td>
-                                        <Td>
-                                            {item.date}
-                                        </Td>
-                                        <Td>
-                                            <Button more/>
-                                        </Td>
-                                    </Tr>
-                                ))
-                            }
+                            {items.current.map((item) => (
+                                <Tr key={item.id}>
+                                    <Td>{item.name}</Td>
+                                    <Td>
+                                        <Status code={item.status} />
+                                    </Td>
+                                    <Td>{item.date}</Td>
+                                    <Td>
+                                        <Button
+                                            more
+                                            onClick={() =>
+                                                setActivePopup('brief')
+                                            }
+                                        />
+                                    </Td>
+                                </Tr>
+                            ))}
                         </TBody>
                     </Table>
                 </div>

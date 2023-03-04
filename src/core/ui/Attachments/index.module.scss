@@ -1,0 +1,19 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.notes {
+    position: relative;
+}
+
+.notesTableWrap {
+    margin-left: -30px;
+    width: calc(100% + 60px);
+}
+
+.notesAdd {
+    background-color: $green;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(calc(-100% - 20px));
+}

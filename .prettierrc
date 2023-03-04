@@ -1,0 +1,14 @@
+{
+  "trailingComma": "es5",
+  "tabWidth": 4,
+  "semi": false,
+  "singleQuote": true,
+  "importOrder": [
+    "^(core|ui)/(.*)$",
+    "^(core|hooks)/(.*)$",
+    "^(core|data)/(.*)$",
+    "^[(.|..)/]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
