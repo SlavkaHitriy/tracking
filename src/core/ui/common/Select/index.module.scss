@@ -87,6 +87,11 @@
     @include customScroll;
 }
 
+.selectDropBottom {
+    top: unset;
+    bottom: 0;
+}
+
 .selectItem {
     transition: all .15s;
     cursor: pointer;

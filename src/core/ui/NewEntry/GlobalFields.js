@@ -1,15 +1,12 @@
 import React, { useRef } from 'react'
 
-// Styles
-import styles from './index.module.scss'
-
+import { assetTypesData } from '../../../data/assetTypes'
 // Data
 import { rigNamesData } from '../../../data/rigNames'
-import { assetTypesData } from '../../../data/assetTypes'
 import { serviceProvidersData } from '../../../data/serviceProviders'
-
-// Components
-import { Select } from '../common/Select'
+import { InfoItem } from '../common/InfoItem'
+// Styles
+import styles from './index.module.scss'
 
 export const GlobalFields = () => {
     const rigNames = useRef(rigNamesData)
@@ -18,45 +15,31 @@ export const GlobalFields = () => {
 
     return (
         <>
-            <div className={styles.entryItem}>
-                <div className={styles.entryItemName}>
-                    Commercial Invoice
-                </div>
-                <div className={styles.entryItemValue}>23423244</div>
-            </div>
-            <div className={styles.entryItem}>
-                <div className={styles.entryItemName}>Pedimento #</div>
-                <div className={styles.entryItemValue}>10287870</div>
-            </div>
-            <div className={styles.entryItem}>
-                <div className={styles.entryItemName}>Rig Name</div>
-                <div className={styles.entryItemValue}>
-                    <Select
-                        className={styles.entryItemSelect}
-                        values={rigNames.current}
-                    />
-                </div>
-            </div>
-            <div className={styles.entryItem}>
-                <div className={styles.entryItemName}>Asset Type</div>
-                <div className={styles.entryItemValue}>
-                    <Select
-                        className={styles.entryItemSelect}
-                        values={assetTypes.current}
-                    />
-                </div>
-            </div>
-            <div className={styles.entryItem}>
-                <div className={styles.entryItemName}>
-                    Service Provider
-                </div>
-                <div className={styles.entryItemValue}>
-                    <Select
-                        className={styles.entryItemSelect}
-                        values={serviceProviders.current}
-                    />
-                </div>
-            </div>
+            <InfoItem
+                className={styles.entryItem}
+                name={'Commercial Invoice'}
+                value={'23423244'}
+            />
+            <InfoItem
+                className={styles.entryItem}
+                name={'Pedimento #'}
+                value={'10287870'}
+            />
+            <InfoItem
+                className={styles.entryItem}
+                name={'Rig Name'}
+                selectValues={rigNames.current}
+            />
+            <InfoItem
+                className={styles.entryItem}
+                name={'Asset Type'}
+                selectValues={assetTypes.current}
+            />
+            <InfoItem
+                className={styles.entryItem}
+                name={'Service Provider'}
+                selectValues={serviceProviders.current}
+            />
         </>
     )
 }

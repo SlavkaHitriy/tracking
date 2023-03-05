@@ -1,23 +1,29 @@
-import React, { useEffect, useRef, useState } from 'react'
 import cn from 'classnames'
+import React, { useEffect, useRef, useState } from 'react'
 
 // Hooks
 import { useToggle } from '../../../hooks/useToggle'
-
+// Components
+import { SvgSprite } from '../SvgSprite/SvgSprite'
 // Styles
 import styles from './index.module.scss'
 
-// Components
-import { SvgSprite } from '../SvgSprite/SvgSprite'
-
-export const Select = ({className, initValue, setNewValue, setNewName, values, staticValue}) => {
+export const Select = ({
+    className,
+    initValue,
+    setNewValue,
+    setNewName,
+    values,
+    staticValue,
+    bottomSelect,
+}) => {
     const select = useRef()
-    const {isOpened, toggleIsOpened} = useToggle()
+    const { isOpened, toggleIsOpened } = useToggle()
     const [selectData, setSelectData] = useState([])
     const [activeValue, setActiveValue] = useState('')
     const [setInitValue, setSetInitValue] = useState(false)
 
-    const changeValue = select => {
+    const changeValue = (select) => {
         setActiveValue(select)
         toggleIsOpened()
     }
@@ -27,7 +33,9 @@ export const Select = ({className, initValue, setNewValue, setNewName, values, s
             if (values) {
                 setSelectData(values)
                 if (initValue) {
-                    setActiveValue(values.find(item => item.value === initValue))
+                    setActiveValue(
+                        values.find((item) => item.value === initValue)
+                    )
                     setSetInitValue(true)
                 } else setActiveValue(values[0])
             }
@@ -36,12 +44,22 @@ export const Select = ({className, initValue, setNewValue, setNewName, values, s
 
     useEffect(() => {
         if (activeValue) {
-            setNewValue && setNewValue(selectData.find(filter => filter.name === activeValue.name).value)
-            if (setNewName) setNewName(selectData.find(filter => filter.name === activeValue.name).name)
+            setNewValue &&
+                setNewValue(
+                    selectData.find(
+                        (filter) => filter.name === activeValue.name
+                    ).value
+                )
+            if (setNewName)
+                setNewName(
+                    selectData.find(
+                        (filter) => filter.name === activeValue.name
+                    ).name
+                )
         }
     }, [activeValue])
 
-    const handleClick = e => {
+    const handleClick = (e) => {
         if (isOpened && !select.current.contains(e.target)) {
             toggleIsOpened()
         }
@@ -53,48 +71,46 @@ export const Select = ({className, initValue, setNewValue, setNewName, values, s
     }, [isOpened])
 
     return (
-        <div ref={select} className={cn(styles.select, {
-            [styles.selectContent]: staticValue,
-            [styles.selectOpened]: isOpened,
-            [className]: className,
-        })}>
+        <div
+            ref={select}
+            className={cn(styles.select, {
+                [styles.selectContent]: staticValue,
+                [styles.selectOpened]: isOpened,
+                [className]: className,
+            })}
+        >
             <div className={styles.selectActive} onClick={toggleIsOpened}>
-                {
-                    staticValue && (
-                        <div className={styles.selectText}>
-                            {staticValue}:
-                        </div>
-                    )
-                }
+                {staticValue && (
+                    <div className={styles.selectText}>{staticValue}:</div>
+                )}
                 {activeValue.name}
-                <SvgSprite spriteID={'arrow'}/>
+                <SvgSprite spriteID={'arrow'} />
             </div>
-            {
-                isOpened && (
-                    <div className={styles.selectDrop}>
-                        {
-                            selectData.map(select => (
-                                <div
-                                    className={cn(styles.selectItem, {
-                                        [styles.selectItemActive]: select.name === activeValue.name,
-                                    })}
-                                    key={select.id}
-                                    onClick={() => changeValue(select)}
-                                >
-                                    {select.name}
-                                    {
-                                        select.name === activeValue.name && (
-                                            <div className={styles.selectItemCheck}>
-                                                <SvgSprite spriteID={'check'}/>
-                                            </div>
-                                        )
-                                    }
+            {isOpened && (
+                <div
+                    className={cn(styles.selectDrop, {
+                        [styles.selectDropBottom]: bottomSelect,
+                    })}
+                >
+                    {selectData.map((select) => (
+                        <div
+                            className={cn(styles.selectItem, {
+                                [styles.selectItemActive]:
+                                    select.name === activeValue.name,
+                            })}
+                            key={select.id}
+                            onClick={() => changeValue(select)}
+                        >
+                            {select.name}
+                            {select.name === activeValue.name && (
+                                <div className={styles.selectItemCheck}>
+                                    <SvgSprite spriteID={'check'} />
                                 </div>
-                            ))
-                        }
-                    </div>
-                )
-            }
+                            )}
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     )
 }

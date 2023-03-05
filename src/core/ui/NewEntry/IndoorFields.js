@@ -1,15 +1,12 @@
 import React, { useRef } from 'react'
 
-// Styles
-import styles from './index.module.scss'
-
-// Data
-import { trackersSelectData } from '../../../data/trackersSelect'
 import { prioritySelectData } from '../../../data/prioritySelect'
 import { statusSelectData } from '../../../data/statusSelect'
-
-// Components
-import { Select } from '../common/Select'
+// Data
+import { trackersSelectData } from '../../../data/trackersSelect'
+import { InfoItem } from '../common/InfoItem'
+// Styles
+import styles from './index.module.scss'
 
 export const IndoorFields = () => {
     const trackers = useRef(trackersSelectData)
@@ -18,45 +15,26 @@ export const IndoorFields = () => {
 
     return (
         <>
-            <div className={styles.entryItem}>
-                <div className={styles.entryItemName}>
-                    Tracker
-                </div>
-                <div className={styles.entryItemValue}>
-                    <Select
-                        className={styles.entryItemSelect}
-                        values={trackers.current}
-                    />
-                </div>
-            </div>
-            <div className={styles.entryItem}>
-                <div className={styles.entryItemName}>
-                    Priority
-                </div>
-                <div className={styles.entryItemValue}>
-                    <Select
-                        className={styles.entryItemSelect}
-                        values={priority.current}
-                    />
-                </div>
-            </div>
-            <div className={styles.entryItem}>
-                <div className={styles.entryItemName}>
-                    Order/Router
-                </div>
-                <div className={styles.entryItemValue}>10287870</div>
-            </div>
-            <div className={styles.entryItem}>
-                <div className={styles.entryItemName}>
-                    Status Notification
-                </div>
-                <div className={styles.entryItemValue}>
-                    <Select
-                        className={styles.entryItemSelect}
-                        values={statuses.current}
-                    />
-                </div>
-            </div>
+            <InfoItem
+                className={styles.entryItem}
+                name={'Tracker'}
+                selectValues={trackers.current}
+            />
+            <InfoItem
+                className={styles.entryItem}
+                name={'Priority'}
+                selectValues={priority.current}
+            />
+            <InfoItem
+                className={styles.entryItem}
+                name={'Order/Router'}
+                value={'10287870'}
+            />
+            <InfoItem
+                className={styles.entryItem}
+                name={'ColorStatus Notification'}
+                selectValues={statuses.current}
+            />
         </>
     )
 }

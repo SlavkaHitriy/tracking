@@ -1,18 +1,17 @@
-import React, { useRef } from 'react'
 import cn from 'classnames'
-
-// Styles
-import styles from './index.module.scss'
+import React, { useRef } from 'react'
 
 // Data
 import { assetTypesData } from '../../../data/assetTypes'
 import { serviceProvidersData } from '../../../data/serviceProviders'
 import { trackersSelectData } from '../../../data/trackersSelect'
-
+import { Button } from '../common/Button'
+import { InfoItem } from '../common/InfoItem'
+import { Select } from '../common/Select'
 // Components
 import { Title } from '../common/Title'
-import { Select } from '../common/Select'
-import { Button } from '../common/Button'
+// Styles
+import styles from './index.module.scss'
 
 export const NewBundle = ({ setActivePopup }) => {
     const trackers = useRef(trackersSelectData)
@@ -25,59 +24,42 @@ export const NewBundle = ({ setActivePopup }) => {
         <div className={styles.entry}>
             <Title className={'mb-6'}>New Bundle</Title>
             <div className={cn(styles.entryInfo, 'mb-7')}>
-                <div className={cn(styles.entryItem, styles.entryItemHighlighted)}>
-                    <div className={styles.entryItemName}>
-                        Bundle #
-                    </div>
-                    <div className={styles.entryItemValue}>05</div>
-                </div>
-                <div className={styles.entryItem}>
-                    <div className={styles.entryItemName}>Tracker</div>
-                    <div className={styles.entryItemValue}>
-                        <Select
-                            className={styles.entryItemSelect}
-                            values={trackers.current}
-                        />
-                    </div>
-                </div>
-                <div className={styles.entryItem}>
-                    <div className={styles.entryItemName}>Asset Type</div>
-                    <div className={styles.entryItemValue}>
-                        <Select
-                            className={styles.entryItemSelect}
-                            values={assetTypes.current}
-                        />
-                    </div>
-                </div>
-                <div className={styles.entryItem}>
-                    <div className={styles.entryItemName}>
-                        QTY
-                    </div>
-                    <div className={styles.entryItemValue}>30</div>
-                </div>
-                <div className={styles.entryItem}>
-                    <div className={styles.entryItemName}>
-                       Rig Code
-                    </div>
-                    <div className={styles.entryItemValue}>V-117</div>
-                </div>
-                <div className={styles.entryItem}>
-                    <div className={styles.entryItemName}>
-                        Service Provider
-                    </div>
-                    <div className={styles.entryItemValue}>
-                        <Select
-                            className={styles.entryItemSelect}
-                            values={serviceProviders.current}
-                        />
-                    </div>
-                </div>
-                <div className={styles.entryItem}>
-                    <div className={styles.entryItemName}>
-                        Truck/Vessel
-                    </div>
-                    <div className={styles.entryItemValue}>TR-2056</div>
-                </div>
+                <InfoItem
+                    className={styles.entryItem}
+                    name={'Bundle #'}
+                    value={'05'}
+                    highlight
+                />
+                <InfoItem
+                    className={styles.entryItem}
+                    name={'Tracker'}
+                    selectValues={trackers.current}
+                />
+                <InfoItem
+                    className={styles.entryItem}
+                    name={'Asset Type'}
+                    selectValues={assetTypes.current}
+                />
+                <InfoItem
+                    className={styles.entryItem}
+                    name={'QTY'}
+                    value={'30'}
+                />
+                <InfoItem
+                    className={styles.entryItem}
+                    name={'Rig Code'}
+                    value={'V-117'}
+                />
+                <InfoItem
+                    className={styles.entryItem}
+                    name={'Service Provider'}
+                    selectValues={serviceProviders.current}
+                />
+                <InfoItem
+                    className={styles.entryItem}
+                    name={'Truck/Vessel'}
+                    value={'TR-2056'}
+                />
             </div>
             <div className={styles.entryActions}>
                 <Button

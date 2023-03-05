@@ -55,60 +55,14 @@
     }
 }
 
+.headerNav {
+    width: 100%;
+    margin-right: 20px;
+}
+
 .headerMenu {
-    max-width: 200px;
-    width: 100%;
-    color: $white;
-    font-size: 13px;
-    font-weight: 700;
-    position: relative;
-}
-
-.headerMenuBtn {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 15px;
-    background-color: $primary;
-    border: 2px solid $grayLight;
-    border-radius: 10px;
-    width: 100%;
-    transition: all .15s;
-
-    img {
-        width: 15px;
-        height: 8px;
-        object-fit: contain;
-        margin-left: 10px;
-        flex-shrink: 0;
-        transition: all .15s;
-    }
-
-    &:hover {
-        box-shadow: 2px 2px 5px rgba($primary, .15);
-    }
-}
-
-.headerMenuBtnActive {
-    img {
-        transform: rotateX(180deg);
-    }
-}
-
-.headerMenuContent {
-    padding: 15px;
-    position: absolute;
-    top: calc(100% + 10px);
-    left: -50px;
-    width: 420px;
-    background-color: $primary;
-    border-radius: 10px;
-}
-
-.headerMenuSubmenu {
-    & + & {
-        margin-top: 25px;
-    }
+    font-size: 15px;
 }
 
 .headerMenuTitle {
@@ -120,32 +74,42 @@
 }
 
 .headerMenuItem {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: -22px;
+
+    span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
     & + & {
-        margin-top: 20px;
+        margin-left: 20px;
     }
 }
 
 .headerMenuLink {
     display: flex;
     align-items: center;
-    padding: 5px 0;
-    width: 100%;
-    font-weight: 400;
+    padding: 5px 5px 15px;
+    color: $black;
 
     &:hover {
         color: $secondary;
     }
-
-    img {
-        width: 25px;
-        height: 25px;
-        object-fit: contain;
-        margin-right: 25px;
-        flex-shrink: 0;
-    }
 }
 
 .headerMenuLinkActive {
-    font-weight: 700;
-    color: $secondary;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $green;
+        left: 0;
+    }
 }

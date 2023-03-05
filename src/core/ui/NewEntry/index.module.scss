@@ -33,30 +33,9 @@
 }
 
 .entryItem {
-    display: flex;
-    align-items: center;
-    border: 1px solid $grayLight;
-    border-radius: 10px;
-    padding: 10px 25px;
-    height: 65px;
-
     & + & {
         margin-top: 20px;
     }
-}
-
-.entryItemName {
-    width: 150px;
-    flex-shrink: 0;
-    margin-right: 10px;
-}
-
-.entryItemValue {
-    font-weight: 700;
-}
-
-.entryItemSelect {
-    margin-left: -10px;
 }
 
 .entryTextareaWrap {
