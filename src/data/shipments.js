@@ -41,4 +41,10 @@ export const shipmentsData = [
         status: 3,
         date: '11/01/22 12:23PM',
     },
+    {
+        id: 8,
+        name: 'Shipment 099',
+        status: 3,
+        date: '11/01/22 12:23PM',
+    },
 ]
