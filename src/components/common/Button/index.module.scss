@@ -1,0 +1,75 @@
+@import '../../../assets/styles/includes/vars';
+@import '../../../assets/styles/includes/mixins';
+
+.btn {
+    transition: all .15s;
+}
+
+.btnStandard {
+    padding: 15px 20px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: 1px solid $grayLight;
+    background-color: $secondary;
+    color: $white;
+
+    &:hover {
+        filter: brightness(.8);
+    }
+}
+
+.btnDark {
+    background-color: $black;
+}
+
+.btnSecondary {
+    background-color: #F5F7FB;
+    color: $black;
+}
+
+.btnPlus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $secondary;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    svg {
+        stroke: $white;
+        width: 16px;
+        height: 16px;
+    }
+
+    &:hover {
+        filter: brightness(.8);
+    }
+}
+
+.btnMore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+
+    span {
+        width: 6px;
+        height: 6px;
+        border: 1px solid $gray;
+        border-radius: 50%;
+        transition: all .15s;
+        display: block;
+
+        & + span {
+            margin-top: 4px;
+        }
+    }
+
+    &:hover {
+        span {
+            border-color: $secondary;
+        }
+    }
+}

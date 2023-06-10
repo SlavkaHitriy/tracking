@@ -1,0 +1,8 @@
+@import '../../../assets/styles/includes/vars';
+@import '../../../assets/styles/includes/mixins';
+
+.content {
+    @include customScroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

@@ -1,0 +1,131 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.settings {
+    width: 100%;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsTitle {
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+
+    svg {
+        stroke: $primary;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.settingsTop {
+    border-bottom: 1px solid $grayLight;
+    padding: 0 20px;
+}
+
+.settingsTabs {
+    display: flex;
+    margin-left: -10px;
+    margin-bottom: -3px;
+}
+
+.settingsWrap {
+    flex-grow: 1;
+}
+
+.settingCompany {
+    padding: 40px 50px;
+}
+
+.settingsCompanyWrap {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px 20px;
+}
+
+.settingsLeft {
+    max-width: 500px;
+    width: 100%;
+    flex-shrink: 0;
+    background-color: $white;
+    border-right: 1px solid $grayLight;
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsFlex {
+    display: flex;
+}
+
+.settingsHeader {
+    padding: 30px 20px;
+    border-bottom: 1px solid $grayLight;
+}
+
+.settingsTitleWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.settingsTitleBtn {
+    flex-shrink: 0;
+}
+
+.settingsTrackers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.settingsTracker {
+    & + & {
+        margin-left: 10px;
+    }
+}
+
+.settingsInfoContent {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.settingsInfoContentHeader {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $grayLight;
+}
+
+.settingsFilter {
+    min-width: 100px;
+    flex-shrink: 0;
+}
+
+.settingsSearch {
+    width: 100%;
+
+    input::placeholder {
+        font-weight: 700;
+    }
+}
+
+.settingsRight {
+    flex-grow: 1;
+}
+
+.settingsRightContent {
+    padding: 40px;
+}
+
+.settingsRightBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px 20px;
+}
+
+.settingsTrackingInfo {
+    margin-top: 20px;
+}

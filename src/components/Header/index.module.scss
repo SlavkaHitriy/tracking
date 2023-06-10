@@ -1,0 +1,115 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.header {
+    height: 60px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    background-color: #F8F8FA;
+    border-bottom: 1px solid $grayLight;
+    position: relative;
+    z-index: 10;
+}
+
+.headerLogo {
+    margin-right: 50px;
+    flex-shrink: 0;
+
+    img {
+        width: 30px;
+        height: 28px;
+        object-fit: contain;
+    }
+}
+
+.headerBtn {
+    margin-left: auto;
+    width: 25px;
+    height: 20px;
+    position: relative;
+
+    span {
+        display: block;
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        background-color: $primary;
+        border-radius: 3px;
+
+        &:first-child {
+            right: 0;
+            top: 0;
+        }
+
+        &:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+        }
+
+        &:last-child {
+            bottom: 0;
+            left: 0;
+        }
+    }
+}
+
+.headerNav {
+    width: 100%;
+    margin-right: 20px;
+}
+
+.headerMenu {
+    display: flex;
+    font-size: 15px;
+}
+
+.headerMenuTitle {
+    margin-bottom: 15px;
+}
+
+.headerMenuList {
+
+}
+
+.headerMenuItem {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: -22px;
+
+    span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    & + & {
+        margin-left: 20px;
+    }
+}
+
+.headerMenuLink {
+    display: flex;
+    align-items: center;
+    padding: 5px 5px 15px;
+    color: $black;
+
+    &:hover {
+        color: $secondary;
+    }
+}
+
+.headerMenuLinkActive {
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $green;
+        left: 0;
+    }
+}

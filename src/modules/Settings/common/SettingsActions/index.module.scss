@@ -1,0 +1,29 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.actions {
+    display: flex;
+    padding: 25px 35px;
+    background-color: $white;
+    //position: absolute;
+    //bottom: 0;
+    height: 100px;
+    width: 100%;
+    border-top: 1px solid $grayLight;
+}
+
+.actionsBtn {
+    min-width: 200px;
+
+    & + & {
+        margin-left: 10px;
+
+        &.actionsBtnMarginLeft {
+            margin-left: auto;
+        }
+    }
+}
+
+.actionsBtnMarginLeft {
+    margin-left: auto;
+}

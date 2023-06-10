@@ -1,0 +1,32 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.data {
+
+}
+
+.dataSelect {
+    border-radius: 10px;
+    border: 1px solid $grayLight;
+    margin: 20px 0;
+}
+
+.dataTabs {
+    display: flex;
+    margin: 25px 0;
+}
+
+.dataTableWrap {
+    margin-left: -30px;
+    width: calc(100% + 60px);
+}
+
+.dataTr {
+    td:last-child {
+        padding: 15px 20px;
+    }
+}
+
+.dataWrapBottom {
+    font-weight: 400;
+}

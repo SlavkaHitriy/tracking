@@ -1,0 +1,86 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.entry {
+    position: absolute;
+    height: 100%;
+    left: 500px;
+    top: 0;
+    z-index: 100;
+    max-width: 800px;
+    width: 100%;
+    background-color: $white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 3px 6px rgba($black, .15);
+    padding: 25px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    @include customScroll;
+}
+
+.entryInner {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.entryInfo {
+    max-width: 435px;
+    width: 100%;
+    font-size: 15px;
+}
+
+.entryItem {
+    & + & {
+        margin-top: 20px;
+    }
+}
+
+.entryTextareaWrap {
+    position: relative;
+    margin-top: 20px;
+}
+
+.entryTextareaLabel {
+    position: absolute;
+    left: 25px;
+    top: 20px;
+}
+
+.entryTextarea {
+    padding: 60px 25px 25px;
+    resize: none;
+    font-weight: 700;
+    width: 100%;
+    border: 1px solid $grayLight;
+    border-radius: 10px;
+    height: 160px;
+}
+
+.entryActions {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.entryActionsBox {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.entryActionsBtn {
+    max-width: 200px;
+    width: 100%;
+
+    & + & {
+        margin-left: 10px;
+    }
+}
+
+.entryProgress {
+    flex-grow: 1;
+}

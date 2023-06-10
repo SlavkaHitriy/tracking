@@ -1,0 +1,75 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.progress {
+    font-size: 17px;
+}
+
+.progressContent {
+    position: relative;
+    width: 100%;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 11px;
+        width: 4px;
+        height: calc(100% - 10px);
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $secondary;
+    }
+}
+
+.progressItem {
+    display: flex;
+    position: relative;
+    z-index: 3;
+
+    & + & {
+        margin-top: 60px;
+    }
+
+    &:last-child {
+        .progressStatus {
+            align-self: flex-end;
+        }
+    }
+}
+
+.progressStatus {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+    background-color: $white;
+    border: 4px solid $secondary;
+    border-radius: 50%;
+}
+
+.progressStatusCurrent {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        width: 7px;
+        height: 7px;
+        background-color: $green;
+        border-radius: 50%;
+    }
+}
+
+.progressStatusComplete {
+    background-color: $secondary;
+}
+
+.progressDate {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.progressValue {
+    font-weight: 700;
+}
