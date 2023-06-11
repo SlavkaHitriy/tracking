@@ -6,7 +6,6 @@ import { InfoIndoor } from '../../components/InfoIndoor/index.js';
 import { MainInfo } from '../../components/MainInfo/index.js';
 import { NewBundle } from '../../components/NewBundle/index.js';
 import { NewEntry } from '../../components/NewEntry/index.js';
-import { PageWrapper } from '../../components/PageWrapper/index.js';
 import { globalTrackingTabsData } from '../../data/globalTrackingTabs.js';
 import styles from './index.module.scss';
 
@@ -50,31 +49,29 @@ export const IndoorTracking = () => {
     }, []);
 
     return (
-        <PageWrapper>
-            <div className={styles.tracking}>
-                <MainInfo
-                    title={'Indoor Tracking'}
-                    icon={'indoor-track'}
+        <div className={styles.tracking}>
+            <MainInfo
+                title={'Indoor Tracking'}
+                icon={'indoor-track'}
+                setActivePopup={setActivePopup}
+            />
+            <div ref={mapContainer} className={styles.trackingMap} />
+            {activePopup === 'new' && (
+                <NewEntry setActivePopup={setActivePopup} indoor />
+            )}
+            {activePopup === 'brief' && (
+                <BriefInfo setActivePopup={setActivePopup} indoor />
+            )}
+            {activePopup === 'info' && (
+                <InfoIndoor
+                    activeTab={activeTab}
+                    setActiveTab={setActiveTab}
                     setActivePopup={setActivePopup}
                 />
-                <div ref={mapContainer} className={styles.trackingMap} />
-                {activePopup === 'new' && (
-                    <NewEntry setActivePopup={setActivePopup} indoor />
-                )}
-                {activePopup === 'brief' && (
-                    <BriefInfo setActivePopup={setActivePopup} indoor />
-                )}
-                {activePopup === 'info' && (
-                    <InfoIndoor
-                        activeTab={activeTab}
-                        setActiveTab={setActiveTab}
-                        setActivePopup={setActivePopup}
-                    />
-                )}
-                {activePopup === 'newBundle' && (
-                    <NewBundle setActivePopup={setActivePopup} />
-                )}
-            </div>
-        </PageWrapper>
+            )}
+            {activePopup === 'newBundle' && (
+                <NewBundle setActivePopup={setActivePopup} />
+            )}
+        </div>
     );
 };

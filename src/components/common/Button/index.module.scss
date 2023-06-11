@@ -6,12 +6,12 @@
 }
 
 .btnStandard {
-    padding: 15px 20px;
+    padding: 15px 50px;
     font-size: 17px;
-    border-radius: 5px;
-    border: 1px solid $grayLight;
-    background-color: $secondary;
-    color: $white;
+    border-radius: 20px;
+    border: 1px solid var(--greyLight);
+    background-color: var(--secondary);
+    color: var(--white);
 
     &:hover {
         filter: brightness(.8);
@@ -19,25 +19,25 @@
 }
 
 .btnDark {
-    background-color: $black;
+    background-color: var(--black);
 }
 
 .btnSecondary {
     background-color: #F5F7FB;
-    color: $black;
+    color: var(--black);
 }
 
 .btnPlus {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $secondary;
+    background-color: var(--secondary);
     width: 40px;
     height: 40px;
     border-radius: 50%;
 
     svg {
-        stroke: $white;
+        stroke: var(--white);
         width: 16px;
         height: 16px;
     }
@@ -57,7 +57,7 @@
     span {
         width: 6px;
         height: 6px;
-        border: 1px solid $gray;
+        border: 1px solid var(--grey);
         border-radius: 50%;
         transition: all .15s;
         display: block;
@@ -69,7 +69,7 @@
 
     &:hover {
         span {
-            border-color: $secondary;
+            border-color: var(--secondary);
         }
     }
 }

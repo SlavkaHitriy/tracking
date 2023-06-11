@@ -2,10 +2,10 @@
 @import '../../../assets/styles/includes/mixins';
 
 .input {
-    background-color: $white;
-    border: 1px solid $grayLight;
+    background-color: var(--white);
+    border: 1px solid var(--greyLight);
     width: 100%;
-    color: $primary;
+    color: var(--primary);
     padding: 11px 15px;
     border-radius: 10px;
 }
@@ -15,16 +15,16 @@
 }
 
 .inputAccent {
-    border-color: $secondary;
+    border-color: var(--secondary);
 }
 
 .inputError {
-    border-color: $red;
+    border-color: var(--red);
 }
 
 .inputErrorText {
     position: absolute;
     top: calc(100% + 3px);
     left: 0;
-    color: $red;
+    color: var(--red);
 }

@@ -11,15 +11,15 @@
     max-width: 800px;
     width: 100%;
     padding: 25px 30px;
-    background-color: $white;
+    background-color: var(--white);
     z-index: 3;
-    box-shadow: 5px 0 20px 5px rgba($black, .15);
+    box-shadow: 5px 0 20px 5px rgba(var(--black-rgb), .15);
 }
 
 .infoTitle {
     text-transform: uppercase;
     padding-bottom: 10px;
-    border-bottom: 1px solid $grayLight;
+    border-bottom: 1px solid var(--greyLight);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,7 +36,7 @@
         display: block;
         width: 6px;
         height: 6px;
-        background-color: $secondary;
+        background-color: var(--secondary);
         border-radius: 50%;
         transition: all .15s;
 

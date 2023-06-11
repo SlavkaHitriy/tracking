@@ -1,15 +1,18 @@
-import React from 'react'
-import cn from 'classnames'
+import React from 'react';
 
-// Styles
-import styles from './index.module.scss'
+import { Typography } from '@mui/material';
 
-export const Title = ({className, children}) => {
+export const Title = ({ sx, type, children }) => {
     return (
-        <h3 className={cn(styles.title, {
-            [className]: className
-        })}>
+        <Typography
+            fontWeight={700}
+            sx={{
+                fontSize: type === 'small' ? '15px' : '23px',
+                textTransform: type === 'small' ? 'uppercase' : 'capitalize',
+                ...sx,
+            }}
+        >
             {children}
-        </h3>
-    )
-}
+        </Typography>
+    );
+};

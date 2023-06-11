@@ -6,11 +6,7 @@ import { InfoGlobal } from '../../components/InfoGlobal/index.js';
 import { MainInfo } from '../../components/MainInfo/index.js';
 import { NewBundle } from '../../components/NewBundle/index.js';
 import { NewEntry } from '../../components/NewEntry/index.js';
-// Components
-import { PageWrapper } from '../../components/PageWrapper/index.js';
-// Data
 import { globalTrackingTabsData } from '../../data/globalTrackingTabs.js';
-// Styles
 import styles from './index.module.scss';
 
 mapboxgl.accessToken =
@@ -53,31 +49,29 @@ export const GlobalTracking = () => {
     }, []);
 
     return (
-        <PageWrapper>
-            <div className={styles.tracking}>
-                <MainInfo
-                    title={'Global Tracking Test'}
-                    icon={'track'}
+        <div className={styles.tracking}>
+            <MainInfo
+                title={'Global Tracking Test'}
+                icon={'track'}
+                setActivePopup={setActivePopup}
+            />
+            <div ref={mapContainer} className={styles.trackingMap} />
+            {activePopup === 'new' && (
+                <NewEntry setActivePopup={setActivePopup} />
+            )}
+            {activePopup === 'brief' && (
+                <BriefInfo setActivePopup={setActivePopup} />
+            )}
+            {activePopup === 'info' && (
+                <InfoGlobal
+                    activeTab={activeTab}
+                    setActiveTab={setActiveTab}
                     setActivePopup={setActivePopup}
                 />
-                <div ref={mapContainer} className={styles.trackingMap} />
-                {activePopup === 'new' && (
-                    <NewEntry setActivePopup={setActivePopup} />
-                )}
-                {activePopup === 'brief' && (
-                    <BriefInfo setActivePopup={setActivePopup} />
-                )}
-                {activePopup === 'info' && (
-                    <InfoGlobal
-                        activeTab={activeTab}
-                        setActiveTab={setActiveTab}
-                        setActivePopup={setActivePopup}
-                    />
-                )}
-                {activePopup === 'newBundle' && (
-                    <NewBundle setActivePopup={setActivePopup} />
-                )}
-            </div>
-        </PageWrapper>
+            )}
+            {activePopup === 'newBundle' && (
+                <NewBundle setActivePopup={setActivePopup} />
+            )}
+        </div>
     );
 };

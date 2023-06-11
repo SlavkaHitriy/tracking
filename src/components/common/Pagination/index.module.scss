@@ -24,15 +24,15 @@
     svg {
         width: 13px;
         height: 13px;
-        fill: $primary;
+        fill: var(--primary);
     }
 
     &:hover {
-        background-color: $secondary;
-        color: $white;
+        background-color: var(--secondary);
+        color: var(--white);
 
         svg {
-            fill: $white;
+            fill: var(--white);
         }
     }
 
@@ -42,11 +42,11 @@
 }
 
 .paginationItemActive {
-    background-color: $secondary;
-    color: $white;
+    background-color: var(--secondary);
+    color: var(--white);
     pointer-events: none;
 
     svg {
-        fill: $white;
+        fill: var(--white);
     }
 }

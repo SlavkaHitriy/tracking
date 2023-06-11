@@ -1,22 +1,36 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import logo from '../../assets/images/logo.svg'
+import logo from '../../assets/images/logo.svg';
 // Styles
-import styles from './index.module.scss'
+import styles from './index.module.scss';
+import { Stack } from '@mui/material';
 
 export const Footer = () => {
     return (
-        <div className={styles.footer}>
-            <div className={styles.footerItem}>
+        <Stack
+            component={'footer'}
+            direction={'row'}
+            justifyContent={'space-between'}
+            className={styles.footer}
+        >
+            <Stack
+                direction={'row'}
+                alignItems={'center'}
+                className={styles.footerItem}
+            >
                 <Link className={styles.footerLogo} to={'/'}>
-                    <img src={logo} alt="logo" />
+                    <img src={logo} alt='logo' />
                 </Link>
                 <div className={styles.footerCopy}>
                     @2023 Flexvertical | Machine Intelligence Platform
                 </div>
-            </div>
-            <div className={styles.footerItem}>
+            </Stack>
+            <Stack
+                direction={'row'}
+                alignItems={'center'}
+                className={styles.footerItem}
+            >
                 <nav>
                     <ul className={styles.footerList}>
                         <li className={styles.footerListItem}>
@@ -30,7 +44,7 @@ export const Footer = () => {
                         </li>
                     </ul>
                 </nav>
-            </div>
-        </div>
-    )
-}
+            </Stack>
+        </Stack>
+    );
+};

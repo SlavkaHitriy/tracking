@@ -22,7 +22,7 @@
 
 .bundlesHeaderBtn {
     margin: 0 auto 19px;
-    background-color: $green;
+    background-color: var(--green);
 }
 
 .bundlesTableWrap {
@@ -34,7 +34,7 @@
     svg {
         width: 13px;
         height: 13px;
-        fill: $primary;
+        fill: var(--primary);
     }
 }
 
@@ -43,14 +43,14 @@
     cursor: pointer;
 
     &:hover {
-        background-color: rgba($grayLight, .3);
+        background-color: rgba(var(--greyLight-rgb), .3);
     }
 }
 
 .bundlesExactBack {
     display: flex;
     align-items: center;
-    color: $secondary;
+    color: var(--secondary);
     cursor: pointer;
     margin-right: 20px;
     flex-shrink: 0;
@@ -60,7 +60,7 @@
         width: 8px;
         height: 12px;
         margin-right: 15px;
-        fill: $secondary;
+        fill: var(--secondary);
     }
 
     &:hover {
@@ -97,7 +97,7 @@
 }
 
 .bundlesExactPlus {
-    background-color: $green;
+    background-color: var(--green);
     margin-left: 20px;
     flex-shrink: 0;
 }
