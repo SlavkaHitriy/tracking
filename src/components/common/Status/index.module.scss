@@ -7,12 +7,12 @@
 }
 
 .statusRoute {
-    color: $green;
+    color: var(--green);
 
     span {
         width: 10px;
         height: 10px;
-        background-color: $green;
+        background-color: var(--green);
         border-radius: 50%;
         margin-left: 5px;
         animation: showLoader 1s infinite;
@@ -40,11 +40,11 @@
 }
 
 .statusComplete {
-    color: $secondary;
+    color: var(--secondary);
 
     svg {
         width: 10px;
         height: 10px;
-        fill: $secondary;
+        fill: var(--secondary);
     }
 }

@@ -23,7 +23,7 @@
     align-items: center;
 
     svg {
-        stroke: $primary;
+        stroke: var(--primary);
         width: 24px;
         height: 24px;
     }
@@ -33,14 +33,14 @@
     & + & {
         margin-top: 25px;
         padding-top: 25px;
-        border-top: 1px solid $grayLight;
+        border-top: 1px solid var(--greyLight);
     }
 }
 
 .overviewWrap {
     border-radius: 10px;
     background-color: #F5F7FB;
-    border: 1px solid $grayLight;
+    border: 1px solid var(--greyLight);
     padding: 25px 20px;
     font-weight: 700;
     margin-top: 30px;
@@ -52,7 +52,7 @@
 
 .overviewBottomValue {
     font-size: 20px;
-    color: $secondary;
+    color: var(--secondary);
 }
 
 .overviewFullWidth {
@@ -69,6 +69,6 @@
         border-radius: 50%;
         flex-shrink: 0;
         margin-left: 15px;
-        background-color: $green;
+        background-color: var(--green);
     }
 }

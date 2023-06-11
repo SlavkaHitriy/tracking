@@ -6,6 +6,7 @@ export const overviewProgressData = [
         status: 2,
         date: '12/01/22',
         time: '08:57AM',
+        toggle: true,
     },
     {
         id: 2,
@@ -31,4 +32,4 @@ export const overviewProgressData = [
         date: '12/05/22',
         time: '08:57AM',
     },
-]
+];

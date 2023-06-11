@@ -1,24 +1,35 @@
-import React from 'react'
-import cn from 'classnames'
+import React from 'react';
+import cn from 'classnames';
 
-// Styles
-import styles from './index.module.scss'
+import styles from './index.module.scss';
 
-// Components
-import { Title } from '../common/Title'
+import { Title } from '../common/Title';
+import { Box, Stack, Switch } from '@mui/material';
 
 export const Progress = ({ title, subtitle, data }) => {
     return (
         <div className={styles.progress}>
-            <Title className={'mb-1'}>{title}</Title>
-            <div className={'mb-5'}>{subtitle}</div>
-            <div className={styles.progressContent}>
+            {title && <Title mb={1}>{title}</Title>}
+            {subtitle && (
+                <Title type={'small'} mb={2}>
+                    {subtitle}
+                </Title>
+            )}
+            <Box className={styles.progressContent}>
                 {data.map((item) => (
-                    <div key={item.id} className={styles.progressItem}>
-                        <div className={cn(styles.progressStatus, 'mr-2', {
-                            [styles.progressStatusCurrent]: item.status === 1,
-                            [styles.progressStatusComplete]: item.status === 2,
-                        })} />
+                    <Stack
+                        direction={'row'}
+                        key={item.id}
+                        className={styles.progressItem}
+                    >
+                        <div
+                            className={cn(styles.progressStatus, 'mr-2', {
+                                [styles.progressStatusCurrent]:
+                                    item.status === 1,
+                                [styles.progressStatusComplete]:
+                                    item.status === 2,
+                            })}
+                        />
                         <div className={styles.progressDate}>
                             <div>{item.date}</div>
                             <div>{item.time}</div>
@@ -29,9 +40,23 @@ export const Progress = ({ title, subtitle, data }) => {
                                 {item.value}
                             </div>
                         </div>
-                    </div>
+                        {item.toggle && (
+                            <Switch
+                                sx={{
+                                    ml: 2,
+                                    '.MuiSwitch-thumb': {
+                                        backgroundColor: 'green.main',
+                                    },
+                                    '.Mui-checked+.MuiSwitch-track': {
+                                        backgroundColor: 'grey.light',
+                                    },
+                                }}
+                                defaultChecked
+                            />
+                        )}
+                    </Stack>
                 ))}
-            </div>
+            </Box>
         </div>
-    )
-}
+    );
+};

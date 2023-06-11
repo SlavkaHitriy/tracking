@@ -18,7 +18,6 @@ export const Button = ({
     dark,
     secondary,
     children,
-    green,
 }) => {
     return (
         <button

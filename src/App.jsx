@@ -5,18 +5,32 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { GlobalTracking } from './modules/GlobalTracking/index.js';
 import { IndoorTracking } from './modules/IndoorTracking/index.js';
 import { Settings } from './modules/Settings/index.js';
+import { Header } from './components/Header/index.js';
+import { Footer } from './components/Footer/index.js';
 
 export const App = () => {
     return (
-        <Routes>
-            <Route path='/global-tracking' element={<GlobalTracking />} />
-            <Route path='/indoor-tracking' element={<IndoorTracking />} />
-            <Route path='/settings' element={<Settings />} />
+        <div className={'app'}>
+            <Header />
+            <main className={'main'}>
+                <Routes>
+                    <Route
+                        path='/global-tracking'
+                        element={<GlobalTracking />}
+                    />
+                    <Route
+                        path='/indoor-tracking'
+                        element={<IndoorTracking />}
+                    />
+                    <Route path='/settings' element={<Settings />} />
 
-            <Route
-                path='*'
-                element={<Navigate to='/global-tracking' replace />}
-            />
-        </Routes>
+                    <Route
+                        path='*'
+                        element={<Navigate to='/global-tracking' replace />}
+                    />
+                </Routes>
+            </main>
+            <Footer />
+        </div>
     );
 };

@@ -1,46 +1,60 @@
-import cn from 'classnames'
-import React, { useRef } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import cn from 'classnames';
+import React, { useRef } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
-// Images
-import logo from '../../assets/images/logo.svg'
-// Styles
-import styles from './index.module.scss'
+import logo from '../../assets/images/logo.svg';
+import styles from './index.module.scss';
+import { Box, Stack, Typography } from '@mui/material';
+import { Dropdown } from '../common/Dropdown/index.js';
+import { DefaultAvatar } from '../common/DefaultAvatar/index.js';
 
 export const Header = () => {
     const menuItems = useRef([
         {
             id: 1,
-            title: 'Global tracking',
+            title: 'Tracking',
             link: '/global-tracking',
-            color: '#51A2F7',
         },
         {
             id: 2,
-            title: 'Indoor tracking',
+            title: 'Assets',
             link: '/indoor-tracking',
-            color: '#51A2F7',
         },
         {
             id: 3,
             title: 'Reporting',
             link: '/reporting',
-            color: '#E83880',
         },
         {
             id: 4,
-            title: 'System settings',
+            title: 'Settings',
             link: '/settings',
-            color: '#51A2F7',
         },
-    ])
+    ]);
 
     return (
-        <header className={styles.header}>
+        <Stack
+            direction={'row'}
+            alignItems={'center'}
+            component={'header'}
+            className={styles.header}
+        >
             <Link className={styles.headerLogo} to={'/'}>
-                <img src={logo} alt="logo" />
+                <img src={logo} alt='logo' />
             </Link>
-            <nav className={styles.headerNav}>
+            <Box className={styles.headerCompany}>
+                <Dropdown>
+                    <Stack>
+                        <Typography fontSize={15} fontWeight={700}>
+                            Titan Trailers
+                        </Typography>
+                        <Typography color={'#8F98AB'} fontSize={13}>
+                            Company
+                        </Typography>
+                    </Stack>
+                </Dropdown>
+            </Box>
+            <Box component={'nav'} ml={6} className={styles.headerNav}>
                 <ul className={styles.headerMenu}>
                     {menuItems.current.map((item) => (
                         <li className={styles.headerMenuItem} key={item.id}>
@@ -52,18 +66,28 @@ export const Header = () => {
                                 }
                                 to={item.link}
                             >
-                                <span style={{ backgroundColor: item.color }} />
                                 {item.title}
                             </NavLink>
                         </li>
                     ))}
                 </ul>
-            </nav>
-            <button className={styles.headerBtn} type={'button'}>
-                <span />
-                <span />
-                <span />
-            </button>
-        </header>
-    )
-}
+            </Box>
+            <Box className={styles.headerUser}>
+                <Stack direction={'row'} alignItems={'center'} spacing={2}>
+                    <DefaultAvatar>AB</DefaultAvatar>
+                    <Dropdown>
+                        <Stack
+                            alignItems={'center'}
+                            justifyContent={'center'}
+                            color={'#8F98AB'}
+                            fontSize={13}
+                            fontWeight={700}
+                        >
+                            Anton
+                        </Stack>
+                    </Dropdown>
+                </Stack>
+            </Box>
+        </Stack>
+    );
+};

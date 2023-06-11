@@ -5,7 +5,7 @@
     width: 100%;
     border-collapse: collapse;
     font-size: 15px;
-    border-bottom: 1px solid $grayLight;
+    border-bottom: 1px solid var(--greyLight);
     table-layout: fixed;
 }
 
@@ -19,7 +19,7 @@
 
 .tr {
     & + & {
-        border-top: 1px solid $grayLight;
+        border-top: 1px solid var(--greyLight);
     }
 }
 
