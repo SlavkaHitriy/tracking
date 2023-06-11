@@ -2,7 +2,7 @@ import styles from './index.module.scss';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { Title } from '../../components/common/Title/index.js';
 import { ScrollContent } from '../../components/common/ScrollContent/index.js';
-import { Button } from '../../components/common/Button/index.js';
+import { DefaultButton } from '../../components/common/DefaultButton/index.js';
 import { Progress } from '../../components/Progress/index.js';
 import { briefInfoProgressData } from '../../data/briefInfoProgress.js';
 import { ColorStatus } from '../../components/common/ColorStatus/index.js';
@@ -177,24 +177,29 @@ export const SettingsTrackersDetails = ({ closeDetails }) => {
                         </Grid>
                     </Box>
                 </Stack>
-            </ScrollContent>
-            <Stack
-                direction={'row'}
-                justifyContent={'space-between'}
-                className={styles.settingsActions}
-            >
-                <Button standard dark onClick={closeDetails}>
-                    Delete
-                </Button>
-                <Stack direction={'row'} spacing={2}>
-                    <Button standard dark onClick={closeDetails}>
-                        Cancel
-                    </Button>
-                    <Button standard onClick={closeDetails}>
-                        Save
-                    </Button>
+                <Stack
+                    p={'35px 50px'}
+                    direction={'row'}
+                    justifyContent={'space-between'}
+                    mt={'auto'}
+                >
+                    <DefaultButton onClick={closeDetails}>Delete</DefaultButton>
+                    <Stack direction={'row'} spacing={2}>
+                        <DefaultButton
+                            sx={{ color: 'secondary.main' }}
+                            onClick={closeDetails}
+                        >
+                            Cancel
+                        </DefaultButton>
+                        <DefaultButton
+                            variant={'contained'}
+                            onClick={closeDetails}
+                        >
+                            Update
+                        </DefaultButton>
+                    </Stack>
                 </Stack>
-            </Stack>
+            </ScrollContent>
         </Box>
     );
 };

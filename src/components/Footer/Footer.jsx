@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
 // Styles
 import styles from './index.module.scss';
-import { Stack } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
 export const Footer = () => {
     return (
@@ -22,9 +22,10 @@ export const Footer = () => {
                 <Link className={styles.footerLogo} to={'/'}>
                     <img src={logo} alt='logo' />
                 </Link>
-                <div className={styles.footerCopy}>
-                    @2023 Flexvertical | Machine Intelligence Platform
-                </div>
+                <Typography fontSize={13}>
+                    @2023 Signal Tracks, LLC | IoT Asset Tracking Intelligence
+                    Platform
+                </Typography>
             </Stack>
             <Stack
                 direction={'row'}

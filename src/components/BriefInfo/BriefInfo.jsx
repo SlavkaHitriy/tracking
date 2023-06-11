@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 // Data
-import { briefInfoProgressData } from '../../data/briefInfoProgress'
+import { briefInfoProgressData } from '../../data/briefInfoProgress';
 // Components
-import { Progress } from '../Progress'
-import { Button } from '../common/Button'
+import { Progress } from '../Progress';
+import { DefaultButton } from '../common/DefaultButton';
 // Styles
-import styles from './index.module.scss'
+import styles from './index.module.scss';
 
 export const BriefInfo = ({ setActivePopup, indoor }) => {
     return (
@@ -43,12 +43,12 @@ export const BriefInfo = ({ setActivePopup, indoor }) => {
                     </div>
                 </div>
             </div>
-            <Button
+            <DefaultButton
                 className={styles.infoBtn}
                 text={'More detail'}
                 onClick={() => setActivePopup('info')}
                 standard
             />
         </div>
-    )
-}
+    );
+};

@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React, { useState } from 'react';
 
 import { useInput } from '../../core/hooks/useInput.jsx';
-import { Button } from '../common/Button';
+import { DefaultButton } from '../common/DefaultButton';
 import { TBody } from '../common/TableComponents/TBody.jsx';
 // Components
 import { THead } from '../common/TableComponents/THead.jsx';
@@ -19,7 +19,7 @@ export const Notes = () => {
 
     return (
         <div className={cn(styles.notes, 'mt-5')}>
-            <Button
+            <DefaultButton
                 className={styles.notesAdd}
                 onClick={() => setAddNote(true)}
                 plus
@@ -40,7 +40,7 @@ export const Notes = () => {
                             <Td>Added missing joints to item list.</Td>
                             <Td>11/01/22 12:23PM</Td>
                             <Td>
-                                <Button more />
+                                <DefaultButton more />
                             </Td>
                         </Tr>
                         <Tr>
@@ -48,7 +48,7 @@ export const Notes = () => {
                             <Td>What serial numbers?</Td>
                             <Td>11/01/22 12:33PM</Td>
                             <Td>
-                                <Button more />
+                                <DefaultButton more />
                             </Td>
                         </Tr>
                         <Tr>
@@ -56,7 +56,7 @@ export const Notes = () => {
                             <Td>Last 20 entries were missing.</Td>
                             <Td>11/01/22 12:33PM</Td>
                             <Td>
-                                <Button more />
+                                <DefaultButton more />
                             </Td>
                         </Tr>
                         <Tr>
@@ -64,7 +64,7 @@ export const Notes = () => {
                             <Td>Confirmed</Td>
                             <Td>11/01/22 12:33PM</Td>
                             <Td>
-                                <Button more />
+                                <DefaultButton more />
                             </Td>
                         </Tr>
                         <Tr>
@@ -72,7 +72,7 @@ export const Notes = () => {
                             <Td>Updated customs documents</Td>
                             <Td>11/01/22 12:33PM</Td>
                             <Td>
-                                <Button more />
+                                <DefaultButton more />
                             </Td>
                         </Tr>
                         <Tr>
@@ -80,7 +80,7 @@ export const Notes = () => {
                             <Td>Verified documents.</Td>
                             <Td>11/01/22 12:33PM</Td>
                             <Td>
-                                <Button more />
+                                <DefaultButton more />
                             </Td>
                         </Tr>
                     </TBody>
@@ -98,15 +98,15 @@ export const Notes = () => {
                         id='addNote'
                     />
                     <div className={styles.notesActions}>
-                        <Button
+                        <DefaultButton
                             className={styles.notesActionsBtn}
                             standard
                             dark
                             onClick={() => setAddNote(false)}
                         >
                             Cancel
-                        </Button>
-                        <Button
+                        </DefaultButton>
+                        <DefaultButton
                             className={cn(
                                 styles.notesActionsBtn,
                                 styles.notesActionsBtnGreen
@@ -115,7 +115,7 @@ export const Notes = () => {
                             onClick={() => setAddNote(false)}
                         >
                             Save
-                        </Button>
+                        </DefaultButton>
                     </div>
                 </>
             )}

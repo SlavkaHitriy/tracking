@@ -1,24 +1,20 @@
-import cn from 'classnames'
-import React, { useRef } from 'react'
+import cn from 'classnames';
+import React, { useRef } from 'react';
 
-// Data
-import { assetTypesData } from '../../data/assetTypes'
-import { serviceProvidersData } from '../../data/serviceProviders'
-import { trackersSelectData } from '../../data/trackersSelect'
-import { Button } from '../common/Button'
-import { InfoItem } from '../common/InfoItem'
-import { Select } from '../common/Select'
-// Components
-import { Title } from '../common/Title'
-// Styles
-import styles from './index.module.scss'
+import { assetTypesData } from '../../data/assetTypes';
+import { serviceProvidersData } from '../../data/serviceProviders';
+import { trackersSelectData } from '../../data/trackersSelect';
+import { DefaultButton } from '../common/DefaultButton';
+import { InfoItem } from '../common/InfoItem';
+import { Title } from '../common/Title';
+import styles from './index.module.scss';
 
 export const NewBundle = ({ setActivePopup }) => {
-    const trackers = useRef(trackersSelectData)
-    const assetTypes = useRef(assetTypesData)
-    const serviceProviders = useRef(serviceProvidersData)
+    const trackers = useRef(trackersSelectData);
+    const assetTypes = useRef(assetTypesData);
+    const serviceProviders = useRef(serviceProvidersData);
 
-    const closeNewEntry = () => setActivePopup('info')
+    const closeNewEntry = () => setActivePopup('info');
 
     return (
         <div className={styles.entry}>
@@ -62,7 +58,7 @@ export const NewBundle = ({ setActivePopup }) => {
                 />
             </div>
             <div className={styles.entryActions}>
-                <Button
+                <DefaultButton
                     text={'Delete'}
                     className={styles.entryActionsBtn}
                     standard
@@ -70,14 +66,14 @@ export const NewBundle = ({ setActivePopup }) => {
                     onClick={closeNewEntry}
                 />
                 <div className={styles.entryActionsBox}>
-                    <Button
+                    <DefaultButton
                         text={'Cancel'}
                         className={styles.entryActionsBtn}
                         standard
                         secondary
                         onClick={closeNewEntry}
                     />
-                    <Button
+                    <DefaultButton
                         text={'Save'}
                         className={styles.entryActionsBtn}
                         standard
@@ -86,5 +82,5 @@ export const NewBundle = ({ setActivePopup }) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

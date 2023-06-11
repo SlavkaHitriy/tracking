@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 
 // Components
 import { CountItem } from '../common/CountItem';
-import { Button } from '../common/Button';
+import { DefaultButton } from '../common/DefaultButton';
 import { Table } from '../common/TableComponents/Table.jsx';
 import { THead } from '../common/TableComponents/THead.jsx';
 import { Tr } from '../common/TableComponents/Tr.jsx';
@@ -46,7 +46,7 @@ export const Bundles = ({ setActivePopup }) => {
                             className={styles.bundlesHeaderItem}
                             onClick={() => setActivePopup('newBundle')}
                         >
-                            <Button
+                            <DefaultButton
                                 className={styles.bundlesHeaderBtn}
                                 plus
                                 green

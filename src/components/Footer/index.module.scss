@@ -2,7 +2,7 @@
 @import '/src/assets/styles/includes/mixins';
 
 .footer {
-    padding: 15px 20px;
+    padding: 8px 20px;
     background-color: #F8F8FA;
     border-top: 1px solid var(--greyLight);
     position: relative;
@@ -13,14 +13,10 @@
     flex-shrink: 0;
 
     img {
-        width: 80px;
-        height: 45px;
+        width: 60px;
+        height: 35px;
         object-fit: contain;
     }
-}
-
-.footerCopy {
-    font-size: 14px;
 }
 
 .footerItem {
@@ -35,6 +31,7 @@
 }
 
 .footerListItem {
+    font-size: 14px;
     a {
         padding: 5px 10px;
 

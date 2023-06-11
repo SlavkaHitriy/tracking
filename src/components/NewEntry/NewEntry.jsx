@@ -2,16 +2,12 @@ import cn from 'classnames';
 import React from 'react';
 
 import { useInput } from '../../core/hooks/useInput.jsx';
-// Data
 import { newEntryProgressData } from '../../data/newEntryProgress';
 import { Progress } from '../Progress';
-import { Button } from '../common/Button';
-import { Select } from '../common/Select';
-// Components
+import { DefaultButton } from '../common/DefaultButton';
 import { Title } from '../common/Title';
 import { GlobalFields } from './GlobalFields.jsx';
 import { IndoorFields } from './IndoorFields.jsx';
-// Styles
 import styles from './index.module.scss';
 
 export const NewEntry = ({ setActivePopup, indoor }) => {
@@ -49,7 +45,7 @@ export const NewEntry = ({ setActivePopup, indoor }) => {
                 </div>
             </div>
             <div className={styles.entryActions}>
-                <Button
+                <DefaultButton
                     text={'Delete'}
                     className={styles.entryActionsBtn}
                     standard
@@ -57,14 +53,14 @@ export const NewEntry = ({ setActivePopup, indoor }) => {
                     onClick={closeNewEntry}
                 />
                 <div className={styles.entryActionsBox}>
-                    <Button
+                    <DefaultButton
                         text={'Cancel'}
                         className={styles.entryActionsBtn}
                         standard
                         secondary
                         onClick={closeNewEntry}
                     />
-                    <Button
+                    <DefaultButton
                         text={'Save'}
                         className={styles.entryActionsBtn}
                         standard

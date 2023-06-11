@@ -1,31 +1,30 @@
-import cn from 'classnames'
-import React from 'react'
+import cn from 'classnames';
+import React from 'react';
 
 // Data
-import { indoorTrackingTabsData } from '../../data/indoorTrackingTabs'
-import { Attachments } from '../Attachments'
-import { Bundles } from '../Bundles'
-import { History } from '../History'
-import { Notes } from '../Notes'
-import { Overview } from '../Overview'
-import { TrackingData } from '../TrackingData'
-import { Button } from '../common/Button'
-import { Tab } from '../common/Tab'
+import { indoorTrackingTabsData } from '../../data/indoorTrackingTabs';
+import { Attachments } from '../Attachments';
+import { History } from '../History';
+import { Notes } from '../Notes';
+import { Overview } from '../Overview';
+import { TrackingData } from '../TrackingData';
+import { DefaultButton } from '../common/DefaultButton';
+import { Tab } from '../common/Tab';
 // Components
-import { Title } from '../common/Title'
+import { Title } from '../common/Title';
 // Styles
-import styles from './index.module.scss'
+import styles from './index.module.scss';
 
-export const InfoIndoor = ({ activeTab, setActiveTab, setActivePopup }) => {
+export const InfoIndoor = ({ activeTab, setActiveTab }) => {
     return (
         <div className={styles.info}>
             <Title className={cn(styles.infoTitle, 'mb-3')}>
                 Details
-                <Button className={styles.infoTitleBtn}>
+                <DefaultButton className={styles.infoTitleBtn}>
                     <span />
                     <span />
                     <span />
-                </Button>
+                </DefaultButton>
             </Title>
             <div className={styles.infoTabs}>
                 {indoorTrackingTabsData.map((tab) => (
@@ -46,5 +45,5 @@ export const InfoIndoor = ({ activeTab, setActiveTab, setActivePopup }) => {
                 {activeTab === 'deviceData' && <TrackingData indoor />}
             </div>
         </div>
-    )
-}
+    );
+};

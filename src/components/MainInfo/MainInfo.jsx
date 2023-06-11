@@ -1,19 +1,17 @@
 import cn from 'classnames';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 import { useInput } from '../../core/hooks/useInput.jsx';
 import { shipmentsData } from '../../data/shipments';
 import { statusesData } from '../../data/statuses';
-// Data
 import { trackersData } from '../../data/trackers';
-import { Button } from '../common/Button';
+import { DefaultButton } from '../common/DefaultButton';
 import { CountItem } from '../common/CountItem';
 import { Input } from '../common/Input';
 import { Pagination } from '../common/Pagination';
 import { ScrollContent } from '../common/ScrollContent';
 import { Select } from '../common/Select';
 import { Status } from '../common/Status';
-// Components
 import { SvgSprite } from '../common/SvgSprite/SvgSprite.jsx';
 import { TBody } from '../common/TableComponents/TBody.jsx';
 import { THead } from '../common/TableComponents/THead.jsx';
@@ -22,7 +20,6 @@ import { Td } from '../common/TableComponents/Td.jsx';
 import { Th } from '../common/TableComponents/Th.jsx';
 import { Tr } from '../common/TableComponents/Tr.jsx';
 import { Title } from '../common/Title';
-// Styles
 import styles from './index.module.scss';
 
 export const MainInfo = ({ title, setActivePopup, icon }) => {
@@ -39,7 +36,7 @@ export const MainInfo = ({ title, setActivePopup, icon }) => {
                         <SvgSprite className={'mr-3'} spriteID={icon} />
                         {title}
                     </Title>
-                    <Button
+                    <DefaultButton
                         className={cn(styles.infoTitleBtn, 'ml-3')}
                         onClick={() => setActivePopup('new')}
                         plus
@@ -87,7 +84,7 @@ export const MainInfo = ({ title, setActivePopup, icon }) => {
                                     </Td>
                                     <Td>{item.date}</Td>
                                     <Td>
-                                        <Button
+                                        <DefaultButton
                                             more
                                             onClick={() =>
                                                 setActivePopup('brief')

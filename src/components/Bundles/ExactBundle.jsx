@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // Data
 import { exactBundleTabsData } from '../../data/exactBundleTabs';
-import { Button } from '../common/Button';
+import { DefaultButton } from '../common/DefaultButton';
 import { GridBox } from '../common/GridBox';
 import { GridName } from '../common/GridName';
 import { GridValue } from '../common/GridValue';
@@ -31,9 +31,12 @@ export const ExactBundle = ({ setOpenedExactBundles }) => {
                     <SvgSprite spriteID={'arrow'} /> Back to Bundles
                 </div>
                 <div className={styles.bundlesExactName}>Bundle: 001</div>
-                <Button className={styles.bundlesExactHeaderBtn} standard>
+                <DefaultButton
+                    className={styles.bundlesExactHeaderBtn}
+                    standard
+                >
                     Edit
-                </Button>
+                </DefaultButton>
             </div>
             <div className={styles.bundlesExactInfo}>
                 <GridBox template={`60% 40%`}>
@@ -75,7 +78,7 @@ export const ExactBundle = ({ setOpenedExactBundles }) => {
                         </Tab>
                     ))}
                 </div>
-                <Button className={styles.bundlesExactPlus} plus />
+                <DefaultButton className={styles.bundlesExactPlus} plus />
             </div>
             <div className={styles.bundlesExactTableWrap}>
                 {activeTab === 'items' && (

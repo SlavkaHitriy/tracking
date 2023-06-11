@@ -3,7 +3,7 @@ import { Box, Stack } from '@mui/material';
 import { Title } from '../../components/common/Title/index.js';
 import { DefaultInput } from '../../components/common/DefaultInput/index.js';
 import { ScrollContent } from '../../components/common/ScrollContent/index.js';
-import { Button } from '../../components/common/Button/index.js';
+import { DefaultButton } from '../../components/common/DefaultButton/index.js';
 
 export const SettingsCategoryDetails = ({ closeDetails }) => {
     return (
@@ -34,24 +34,29 @@ export const SettingsCategoryDetails = ({ closeDetails }) => {
                         />
                     </Stack>
                 </Stack>
-            </ScrollContent>
-            <Stack
-                direction={'row'}
-                justifyContent={'space-between'}
-                className={styles.settingsActions}
-            >
-                <Button standard dark onClick={closeDetails}>
-                    Delete
-                </Button>
-                <Stack direction={'row'} spacing={2}>
-                    <Button standard dark onClick={closeDetails}>
-                        Cancel
-                    </Button>
-                    <Button standard onClick={closeDetails}>
-                        Save
-                    </Button>
+                <Stack
+                    p={'35px 50px'}
+                    direction={'row'}
+                    justifyContent={'space-between'}
+                    mt={'auto'}
+                >
+                    <DefaultButton onClick={closeDetails}>Delete</DefaultButton>
+                    <Stack direction={'row'} spacing={2}>
+                        <DefaultButton
+                            sx={{ color: 'secondary.main' }}
+                            onClick={closeDetails}
+                        >
+                            Cancel
+                        </DefaultButton>
+                        <DefaultButton
+                            variant={'contained'}
+                            onClick={closeDetails}
+                        >
+                            Update
+                        </DefaultButton>
+                    </Stack>
                 </Stack>
-            </Stack>
+            </ScrollContent>
         </Box>
     );
 };
