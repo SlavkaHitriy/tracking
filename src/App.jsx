@@ -7,6 +7,7 @@ import { IndoorTracking } from './modules/IndoorTracking/index.js';
 import { Settings } from './modules/Settings/index.js';
 import { Header } from './components/Header/index.js';
 import { Footer } from './components/Footer/index.js';
+import { Assets } from './modules/Assets/index.js'
 
 export const App = () => {
     return (
@@ -22,6 +23,7 @@ export const App = () => {
                         path='/indoor-tracking'
                         element={<IndoorTracking />}
                     />
+                    <Route path='/assets' element={<Assets />} />
                     <Route path='/settings' element={<Settings />} />
 
                     <Route

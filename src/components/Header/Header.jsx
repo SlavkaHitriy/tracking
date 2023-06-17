@@ -18,7 +18,7 @@ export const Header = () => {
         {
             id: 2,
             title: 'Assets',
-            link: '/indoor-tracking',
+            link: '/assets',
         },
         {
             id: 3,

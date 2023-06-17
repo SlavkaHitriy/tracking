@@ -2,7 +2,6 @@ import cn from 'classnames';
 import React, { useRef } from 'react';
 
 import { useCalculateElementHeight } from '../../../core/hooks/useCalculateElementHeight.jsx';
-// Styles
 import styles from './index.module.scss';
 import { Stack } from '@mui/material';
 

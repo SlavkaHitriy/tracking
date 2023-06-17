@@ -1,21 +1,21 @@
-import React, { useRef } from 'react'
+import React, { useRef } from 'react';
+import { Box } from '@mui/material';
 
-// Styles
-import styles from './index.module.scss'
-
-export const ColorStatus = ({ code }) => {
+export const ColorStatus = ({ code, size = 10 }) => {
     const colors = useRef({
         1: '#76C278',
         2: '#51A2F7',
         3: '#E83880',
-    })
+    });
 
     return (
-        <div
-            className={styles.status}
-            style={{
+        <Box
+            sx={{
+                width: size,
+                height: size,
+                borderRadius: '50%',
                 backgroundColor: colors.current[code] || '#76C278',
             }}
         />
-    )
-}
+    );
+};

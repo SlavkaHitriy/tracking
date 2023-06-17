@@ -5,8 +5,9 @@ import styles from './index.module.scss';
 
 import { Title } from '../common/Title';
 import { Box, Stack, Switch } from '@mui/material';
+import { ColorStatus } from '../common/ColorStatus/index.js';
 
-export const Progress = ({ title, subtitle, data }) => {
+export const Progress = ({ title, subtitle, data, staticData }) => {
     return (
         <div className={styles.progress}>
             {title && <Title mb={1}>{title}</Title>}
@@ -41,18 +42,30 @@ export const Progress = ({ title, subtitle, data }) => {
                             </div>
                         </div>
                         {item.toggle && (
-                            <Switch
-                                sx={{
-                                    ml: 2,
-                                    '.MuiSwitch-thumb': {
-                                        backgroundColor: 'green.main',
-                                    },
-                                    '.Mui-checked+.MuiSwitch-track': {
-                                        backgroundColor: 'grey.light',
-                                    },
-                                }}
-                                defaultChecked
-                            />
+                            <>
+                                {staticData ? (
+                                    <Box
+                                        ml={2}
+                                        mb={'3px'}
+                                        alignSelf={'flex-end'}
+                                    >
+                                        <ColorStatus code={1} size={15} />
+                                    </Box>
+                                ) : (
+                                    <Switch
+                                        sx={{
+                                            ml: 2,
+                                            '.MuiSwitch-thumb': {
+                                                backgroundColor: 'green.main',
+                                            },
+                                            '.Mui-checked+.MuiSwitch-track': {
+                                                backgroundColor: 'grey.light',
+                                            },
+                                        }}
+                                        defaultChecked
+                                    />
+                                )}
+                            </>
                         )}
                     </Stack>
                 ))}
