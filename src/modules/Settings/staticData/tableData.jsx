@@ -1,7 +1,7 @@
 import { Stack, Typography } from '@mui/material';
-import { DefaultAvatar } from '../../../components/common/DefaultAvatar/index.js';
+import { DefaultAvatar } from '../../../components/DefaultAvatar/index.js';
 import React from 'react';
-import { ColorStatus } from '../../../components/common/ColorStatus/index.js';
+import { ColorStatus } from '../../../components/ColorStatus/index.js';
 import { ArrowForwardIos } from '@mui/icons-material';
 
 export const columns = [

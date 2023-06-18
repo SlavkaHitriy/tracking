@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { Tab } from '../../components/common/Tab/index.js';
-import { settingsTabsData } from '../../data/settingsTabs.js';
+import { Tab } from '../../components/Tab/index.js';
+import { settingsTabsData } from './staticData/settingsTabs';
 import { SettingsCompany } from './SettingsCompany.jsx';
 import { SettingsConfiguration } from './SettingsConfiguration.jsx';
 import styles from './index.module.scss';

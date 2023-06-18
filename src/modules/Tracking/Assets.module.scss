@@ -1,0 +1,52 @@
+@import '/src/assets/styles/includes/vars';
+@import '/src/assets/styles/includes/mixins';
+
+.assets {
+    width: 100%;
+    background-color: var(--white);
+    position: relative;
+}
+
+.details {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 750px;
+    height: 100%;
+    background-color: var(--white);
+    border-left: 1px solid var(--greyLight);
+}
+
+.assetTabItem {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 10px 15px;
+    color: var(--black);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--secondary);
+    }
+}
+
+.assetTabItemActive {
+    font-weight: 700;
+    pointer-events: none;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        width: 100%;
+        height: 3px;
+        background-color: var(--secondary);
+        left: 0;
+    }
+}
+
+.trackProgress {
+    width: 100%;
+    object-fit: contain;
+    height: 135px;
+}

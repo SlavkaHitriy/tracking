@@ -27,6 +27,9 @@ export const theme = createTheme({
         green: {
             main: '#19A872',
         },
+        orange: {
+            main: '#FFAA50',
+        },
     },
     typography: {
         allVariants: {

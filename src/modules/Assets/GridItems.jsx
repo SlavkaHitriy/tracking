@@ -1,6 +1,6 @@
 import { Box, Grid, Stack, Typography } from '@mui/material';
-import { Title } from '../../components/common/Title/index.js';
-import { ColorStatus } from '../../components/common/ColorStatus';
+import { Title } from '../../components/Title/index.js';
+import { ColorStatus } from '../../components/ColorStatus';
 import trackProgress from '../../assets/images/trackProgress.png';
 import { gridItems } from './staticData/gridItems.js';
 

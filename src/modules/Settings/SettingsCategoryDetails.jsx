@@ -1,9 +1,9 @@
 import styles from './index.module.scss';
 import { Box, Stack } from '@mui/material';
-import { Title } from '../../components/common/Title/index.js';
-import { DefaultInput } from '../../components/common/DefaultInput/index.js';
-import { ScrollContent } from '../../components/common/ScrollContent/index.js';
-import { DefaultButton } from '../../components/common/DefaultButton/index.js';
+import { Title } from '../../components/Title/index.js';
+import { DefaultInput } from '../../components/DefaultInput/index.js';
+import { ScrollContent } from '../../components/ScrollContent/index.js';
+import { DefaultButton } from '../../components/DefaultButton/index.js';
 
 export const SettingsCategoryDetails = ({ closeDetails }) => {
     return (

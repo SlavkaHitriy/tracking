@@ -1,6 +1,6 @@
 import { Stack, Typography } from '@mui/material';
 import React from 'react';
-import { ColorStatus } from '../../../components/common/ColorStatus/index.js';
+import { ColorStatus } from '../../../components/ColorStatus/index.js';
 import { ArrowForwardIos } from '@mui/icons-material';
 
 export const trackersColumns = [

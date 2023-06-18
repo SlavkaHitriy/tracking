@@ -2,9 +2,9 @@ import React from 'react';
 
 import styles from './index.module.scss';
 import { Box, Grid, Stack, Typography } from '@mui/material';
-import { Title } from '../../components/common/Title/index.js';
-import { DefaultInput } from '../../components/common/DefaultInput/index.js';
-import { ScrollContent } from '../../components/common/ScrollContent/index.js';
+import { Title } from '../../components/Title/index.js';
+import { DefaultInput } from '../../components/DefaultInput/index.js';
+import { ScrollContent } from '../../components/ScrollContent/index.js';
 
 export const SettingsCompany = () => {
     return (

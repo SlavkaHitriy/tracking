@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-import { ScrollContent } from '../../components/common/ScrollContent/index.js';
-import { Title } from '../../components/common/Title/index.js';
+import { ScrollContent } from '../../components/ScrollContent/index.js';
+import { Title } from '../../components/Title/index.js';
 import styles from './index.module.scss';
 import { Box, Stack, Typography } from '@mui/material';
 import { Add } from '@mui/icons-material';
-import { DefaultIconButton } from '../../components/common/DefaultIconButton/index.js';
-import { DefaultDataGrid } from '../../components/common/DefaultDataGrid/index.js';
+import { DefaultIconButton } from '../../components/DefaultIconButton/index.js';
+import { DefaultDataGrid } from '../../components/DefaultDataGrid/index.js';
 import {
     trackersColumns,
     trackersRows,

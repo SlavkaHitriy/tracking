@@ -1,11 +1,11 @@
 import styles from './index.module.scss';
 import { Box, Grid, Stack, Typography } from '@mui/material';
-import { Title } from '../../components/common/Title/index.js';
-import { ScrollContent } from '../../components/common/ScrollContent/index.js';
-import { DefaultButton } from '../../components/common/DefaultButton/index.js';
-import { Progress } from '../../components/Progress/index.js';
+import { Title } from '../../components/Title/index.js';
+import { ScrollContent } from '../../components/ScrollContent/index.js';
+import { DefaultButton } from '../../components/DefaultButton/index.js';
 import { briefInfoProgressData } from '../../data/briefInfoProgress.js';
-import { ColorStatus } from '../../components/common/ColorStatus/index.js';
+import { ColorStatus } from '../../components/ColorStatus/index.js';
+import { Progress } from '../../components/Progress/Progress.jsx';
 
 export const SettingsTrackersDetails = ({ closeDetails }) => {
     return (

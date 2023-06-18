@@ -5,15 +5,15 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
 import styles from './index.module.scss';
 import { Box, Stack, Typography } from '@mui/material';
-import { Dropdown } from '../common/Dropdown/index.js';
-import { DefaultAvatar } from '../common/DefaultAvatar/index.js';
+import { Dropdown } from '../Dropdown/index.js';
+import { DefaultAvatar } from '../DefaultAvatar/index.js';
 
 export const Header = () => {
     const menuItems = useRef([
         {
             id: 1,
             title: 'Tracking',
-            link: '/global-tracking',
+            link: '/tracking',
         },
         {
             id: 2,

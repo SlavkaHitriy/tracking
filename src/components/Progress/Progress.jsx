@@ -3,9 +3,9 @@ import cn from 'classnames';
 
 import styles from './index.module.scss';
 
-import { Title } from '../common/Title';
+import { Title } from '../Title';
 import { Box, Stack, Switch } from '@mui/material';
-import { ColorStatus } from '../common/ColorStatus/index.js';
+import { ColorStatus } from '../ColorStatus/index.js';
 
 export const Progress = ({ title, subtitle, data, staticData }) => {
     return (

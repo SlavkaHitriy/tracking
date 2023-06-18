@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 
 import styles from './Assets.module.scss';
 import { Box, ButtonGroup, Stack } from '@mui/material';
-import { Title } from '../../components/common/Title/index.js';
+import { Title } from '../../components/Title/index.js';
 import { Add, GridView, Reorder } from '@mui/icons-material';
-import { DefaultIconButton } from '../../components/common/DefaultIconButton/index.js';
-import { DefaultDataGrid } from '../../components/common/DefaultDataGrid/index.js';
+import { DefaultIconButton } from '../../components/DefaultIconButton/index.js';
+import { DefaultDataGrid } from '../../components/DefaultDataGrid/index.js';
 import { columns, rows } from './staticData/tableData.jsx';
-import { ScrollContent } from '../../components/common/ScrollContent/index.js';
-import { Details } from './Details.jsx';
+import { ScrollContent } from '../../components/ScrollContent/index.js';
+import { Details } from '../../components/TrailerDetails/Details.jsx';
 import { GridItems } from './GridItems';
+import { StatusFilters } from '../../components/StatusFilters/StatusFilters';
 
 export const Assets = () => {
     const [isActiveDetails, setIsActiveDetails] = useState(false);
@@ -19,14 +20,18 @@ export const Assets = () => {
         <Stack className={styles.assets}>
             <Title type={'header'}>Assets</Title>
             <Stack flexGrow={1} spacing={4}>
-                <Stack
-                    direction={'row'}
-                    alignItems={'center'}
-                    justifyContent={'space-between'}
-                    px={3}
-                    pt={3}
-                >
-                    <Stack direction={'row'} spacing={2}>
+                <Stack spacing={3}>
+                    <Stack
+                        direction={'row'}
+                        alignItems={'center'}
+                        justifyContent={'space-between'}
+                        px={3}
+                        pt={3}
+                    >
+                        <StatusFilters />
+                        <DefaultIconButton icon={<Add />} />
+                    </Stack>
+                    <Box px={3}>
                         <ButtonGroup
                             sx={{ overflow: 'hidden' }}
                             variant='contained'
@@ -61,8 +66,7 @@ export const Assets = () => {
                                 icon={<GridView />}
                             />
                         </ButtonGroup>
-                    </Stack>
-                    <DefaultIconButton icon={<Add />} />
+                    </Box>
                 </Stack>
                 <Box flexGrow={1}>
                     {activeView === 'table' && (

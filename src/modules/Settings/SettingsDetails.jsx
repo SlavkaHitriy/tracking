@@ -7,12 +7,12 @@ import {
     RadioGroup,
     Stack,
 } from '@mui/material';
-import { Title } from '../../components/common/Title/index.js';
-import { DefaultAvatar } from '../../components/common/DefaultAvatar/index.js';
-import { DefaultInput } from '../../components/common/DefaultInput/index.js';
-import { ScrollContent } from '../../components/common/ScrollContent/index.js';
-import { DefaultSelect } from '../../components/common/DefaultSelect/index.js';
-import { DefaultButton } from '../../components/common/DefaultButton/index.js';
+import { Title } from '../../components/Title/index.js';
+import { DefaultAvatar } from '../../components/DefaultAvatar/index.js';
+import { DefaultInput } from '../../components/DefaultInput/index.js';
+import { ScrollContent } from '../../components/ScrollContent/index.js';
+import { DefaultSelect } from '../../components/DefaultSelect/index.js';
+import { DefaultButton } from '../../components/DefaultButton/index.js';
 
 export const SettingsDetails = ({ closeDetails }) => {
     return (
