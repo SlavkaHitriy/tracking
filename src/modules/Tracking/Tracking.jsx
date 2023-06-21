@@ -12,6 +12,7 @@ import { Status } from '../../components/Status';
 import { getStatusColor } from '../../core/functions/statusHelpers.js';
 import { Details } from '../../components/TrailerDetails/Details.jsx';
 import { StatusFilters } from '../../components/StatusFilters/StatusFilters';
+import {SearchInput} from '../../components/SearchInput'
 
 export const Tracking = () => {
     const [isActiveDetails, setIsActiveDetails] = useState(false);
@@ -30,6 +31,9 @@ export const Tracking = () => {
                     <StatusFilters />
                     <DefaultIconButton icon={<Add />} />
                 </Stack>
+                <Box px={3}>
+                    <SearchInput />
+                </Box>
                 <Box flexGrow={1}>
                     <Stack height={'100%'} direction={'row'}>
                         <Box px={2} minWidth={420}>

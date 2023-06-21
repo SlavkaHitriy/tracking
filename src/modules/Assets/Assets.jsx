@@ -11,6 +11,7 @@ import { ScrollContent } from '../../components/ScrollContent/index.js';
 import { Details } from '../../components/TrailerDetails/Details.jsx';
 import { GridItems } from './GridItems';
 import { StatusFilters } from '../../components/StatusFilters/StatusFilters';
+import { SearchInput } from "../../components/SearchInput";
 
 export const Assets = () => {
     const [isActiveDetails, setIsActiveDetails] = useState(false);
@@ -31,7 +32,8 @@ export const Assets = () => {
                         <StatusFilters />
                         <DefaultIconButton icon={<Add />} />
                     </Stack>
-                    <Box px={3}>
+                    <Stack direction={'row'} spacing={3} px={3}>
+                        <SearchInput />
                         <ButtonGroup
                             sx={{ overflow: 'hidden' }}
                             variant='contained'
@@ -66,7 +68,7 @@ export const Assets = () => {
                                 icon={<GridView />}
                             />
                         </ButtonGroup>
-                    </Box>
+                    </Stack>
                 </Stack>
                 <Box flexGrow={1}>
                     {activeView === 'table' && (

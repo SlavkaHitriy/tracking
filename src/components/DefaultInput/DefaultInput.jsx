@@ -18,6 +18,9 @@ export const DefaultInput = ({ label, placeholder, ...otherProps }) => {
                     transform: 'unset',
                     color: 'primary.main',
                     position: 'static',
+                    '&.Mui-disabled': {
+                        color: 'primary.main',
+                    },
                 },
                 '.MuiInput-input': {
                     py: '10px',
@@ -32,6 +35,11 @@ export const DefaultInput = ({ label, placeholder, ...otherProps }) => {
                     mt: label ? 1 : 0,
                     '&::before': {
                         borderColor: 'grey.light',
+                    },
+                    '&.Mui-disabled': {
+                        '&::before': {
+                            display: 'none'
+                        }
                     },
                 },
             }}
