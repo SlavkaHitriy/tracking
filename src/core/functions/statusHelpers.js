@@ -5,7 +5,7 @@ export const getStatusColor = (code) => {
         case 2:
             return 'orange.main';
         case 3:
-            return 'primary.main';
+            return 'red.main';
         default:
             return 'green.main';
     }

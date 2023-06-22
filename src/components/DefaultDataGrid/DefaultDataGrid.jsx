@@ -58,6 +58,9 @@ export const DefaultDataGrid = ({ columns, rows, ...otherProps }) => {
                 '.MuiDataGrid-selectedRowCount': {
                     flexShrink: 0,
                 },
+                '.MuiDataGrid-virtualScroller': {
+                    overflow: 'visible'
+                }
             }}
             columns={columns}
             rows={rows}
