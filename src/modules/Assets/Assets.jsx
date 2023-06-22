@@ -11,7 +11,8 @@ import { ScrollContent } from '../../components/ScrollContent/index.js';
 import { Details } from '../../components/TrailerDetails/Details.jsx';
 import { GridItems } from './GridItems';
 import { StatusFilters } from '../../components/StatusFilters/StatusFilters';
-import { SearchInput } from "../../components/SearchInput";
+import { SearchInput } from '../../components/SearchInput';
+import { DefaultButton } from '../../components/DefaultButton';
 
 export const Assets = () => {
     const [isActiveDetails, setIsActiveDetails] = useState(false);
@@ -30,7 +31,25 @@ export const Assets = () => {
                         pt={3}
                     >
                         <StatusFilters />
-                        <DefaultIconButton icon={<Add />} />
+                        <DefaultButton
+                            sx={{
+                                p: '5px 12px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '14px',
+                                fontWeight: 700,
+                            }}
+                        >
+                            <DefaultIconButton
+                                sx={{
+                                    pointerEvents: 'none',
+                                    backgroundColor: 'secondary.main',
+                                    color: 'common.white',
+                                }}
+                                icon={<Add />}
+                            />
+                            Add new asset
+                        </DefaultButton>
                     </Stack>
                     <Stack direction={'row'} spacing={3} px={3}>
                         <SearchInput />

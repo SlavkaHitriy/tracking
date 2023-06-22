@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import styles from './Assets.module.scss';
 import { Box, Stack, Typography } from '@mui/material';
 import { Title } from '../../components/Title/index.js';
-import { Add } from '@mui/icons-material';
-import { DefaultIconButton } from '../../components/DefaultIconButton/index.js';
 import { ScrollContent } from '../../components/ScrollContent/index.js';
 import { Map } from '../../components/Map/Map.jsx';
 import { trackerItems } from './staticData/trackerItems.js';
@@ -12,7 +10,8 @@ import { Status } from '../../components/Status';
 import { getStatusColor } from '../../core/functions/statusHelpers.js';
 import { Details } from '../../components/TrailerDetails/Details.jsx';
 import { StatusFilters } from '../../components/StatusFilters/StatusFilters';
-import {SearchInput} from '../../components/SearchInput'
+import { SearchInput } from '../../components/SearchInput';
+import { Filters } from '../../components/Filters/Filters';
 
 export const Tracking = () => {
     const [isActiveDetails, setIsActiveDetails] = useState(false);
@@ -25,15 +24,16 @@ export const Tracking = () => {
                     direction={'row'}
                     alignItems={'center'}
                     justifyContent={'space-between'}
+                    spacing={5}
                     px={3}
                     pt={3}
                 >
                     <StatusFilters />
-                    <DefaultIconButton icon={<Add />} />
+                    <Box flexGrow={1}>
+                        <SearchInput />
+                    </Box>
+                    <Filters />
                 </Stack>
-                <Box px={3}>
-                    <SearchInput />
-                </Box>
                 <Box flexGrow={1}>
                     <Stack height={'100%'} direction={'row'}>
                         <Box px={2} minWidth={420}>
@@ -158,6 +158,7 @@ export const Tracking = () => {
                             sx={{
                                 overflow: 'hidden',
                                 borderTopLeftRadius: '5px',
+                                boxShadow: '0 3px 6px rgba(0 0 0 / 16%)'
                             }}
                         >
                             <Map />

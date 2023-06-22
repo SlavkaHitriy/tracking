@@ -1,9 +1,9 @@
 import { Stack } from "@mui/material"
-import { DefaultInput } from "../DefaultInput"
 import { DefaultIconButton } from "../DefaultIconButton"
-import { Search } from "@mui/icons-material"
+import { Tune } from "@mui/icons-material"
+import { DefaultSelect } from "../DefaultSelect"
 
-export const SearchInput = () => {
+export const Filters = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
     }
@@ -12,7 +12,7 @@ export const SearchInput = () => {
         <Stack direction={'row'} sx={{
             backgroundColor: '#F5F7FB',
             borderRadius: '5px',
-            maxWidth: '710px',
+            maxWidth: '300px',
             width: '100%',
             overflow: 'hidden',
             boxShadow: '0 3px 6px rgba(0 0 0 / 16%)'
@@ -20,12 +20,13 @@ export const SearchInput = () => {
             component={'form'}
             onSubmit={handleSubmit}
         >
-            <DefaultIconButton icon={<Search />} type='submit' size={'100%'} sx={{
+            <DefaultIconButton icon={<Tune />} type='submit' size={'100%'} sx={{
                 width: '65px',
                 borderRadius: 0,
                 position: 'relative',
                 backgroundColor: '#f8f8fa',
                 color: 'grey.blue',
+                pointerEvents: 'none',
 
                 '&::after': {
                     content: "''",
@@ -40,18 +41,19 @@ export const SearchInput = () => {
                     backgroundColor: '#f8f8fa',
                 }
             }} />
-            <DefaultInput 
-                placeholder={'Search for tracker ID, asset name, contact or other details…'} 
+            <DefaultSelect
+                placeholder={'Search for tracker ID, asset name, contact or other details…'}
                 sx={{
+                    minWidth: 'unset',
                     width: '100%',
                     '.MuiInputBase-root::before': {
                         display: 'none'
                     },
                     '.MuiInputBase-root': {
                         height: '45px',
-                        px: '20px',
                     },
                     '.MuiInputBase-input': {
+                        px: '20px',
                         '&::placeholder': {
                             fontWeight: 700
                         }
