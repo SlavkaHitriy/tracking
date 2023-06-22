@@ -6,7 +6,7 @@ import { Title } from '../../components/Title';
 import { Filters } from '../../components/Filters/Filters';
 import { ScrollContent } from '../../components/ScrollContent';
 import { DefaultDataGrid } from '../../components/DefaultDataGrid';
-import { columns, rows } from './staticData/tableData';
+import { invoiceColumns, invoiceRows } from "./staticData/tableData";
 
 export const InvoiceDetails = ({ closeDetails }) => {
     return (
@@ -328,9 +328,8 @@ export const InvoiceDetails = ({ closeDetails }) => {
             <ScrollContent>
                 <Box height={600}>
                     <DefaultDataGrid
-                        columns={columns}
-                        rows={rows}
-                        onRowClick={() => setIsActiveDetails(true)}
+                        columns={invoiceColumns}
+                        rows={invoiceRows}
                     />
                 </Box>
             </ScrollContent>

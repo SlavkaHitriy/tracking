@@ -123,3 +123,108 @@ export const rows = [
         },
     },
 ];
+
+export const invoiceColumns = [
+    {
+        field: 'deviceSn',
+        headerName: 'Device SN',
+        width: 210,
+        flex: 1,
+        renderCell: ({ value }) => (
+          <Typography color={'secondary'} fontSize={13} fontWeight={700}>
+              {value}
+          </Typography>
+        ),
+    },
+    { field: 'linkedAsset', flex: 1, headerName: 'Linked Asset', width: 200 },
+    { field: 'hardware', flex: 1, headerName: 'Hardware', width: 135 },
+    { field: 'firmware', flex: 1, headerName: 'Firmware', width: 135 },
+    { field: 'hwVersion', flex: 1, headerName: 'HW Ver.', width: 135 },
+    {
+        field: 'status',
+        headerName: 'Status',
+        width: 170,
+        renderCell: ({ value: { name, code } }) => (
+          <Stack
+            width={'100%'}
+            direction={'row'}
+            justifyContent={'space-between'}
+            alignItems={'center'}
+            spacing={1}
+            pr={2}
+          >
+              <Typography fontSize={13}>{name}</Typography>
+              <ColorStatus code={code} />
+          </Stack>
+        ),
+    },
+    { field: 'cost', headerName: 'Cost', width: 110 },
+];
+
+export const invoiceRows = [
+    {
+        id: 1,
+        deviceSn: '704298',
+        linkedAsset: 'Trailer 202',
+        hardware: 'Oyster 3',
+        firmware: '268',
+        hwVersion: '1',
+        status: {
+            name: 'Active',
+            code: 1,
+        },
+        cost: '$9.99',
+    },
+    {
+        id: 2,
+        deviceSn: '704298',
+        linkedAsset: 'Trailer 202',
+        hardware: 'Oyster 3',
+        firmware: '268',
+        hwVersion: '1',
+        status: {
+            name: 'Active',
+            code: 1,
+        },
+        cost: '$9.99',
+    },
+    {
+        id: 3,
+        deviceSn: '704298',
+        linkedAsset: 'Trailer 202',
+        hardware: 'Oyster 3',
+        firmware: '268',
+        hwVersion: '1',
+        status: {
+            name: 'Active',
+            code: 1,
+        },
+        cost: '$9.99',
+    },
+    {
+        id: 4,
+        deviceSn: '704298',
+        linkedAsset: 'Trailer 202',
+        hardware: 'Oyster 3',
+        firmware: '268',
+        hwVersion: '1',
+        status: {
+            name: 'Active',
+            code: 1,
+        },
+        cost: '$9.99',
+    },
+    {
+        id: 5,
+        deviceSn: '704298',
+        linkedAsset: 'Trailer 202',
+        hardware: 'Oyster 3',
+        firmware: '268',
+        hwVersion: '1',
+        status: {
+            name: 'Deactivated',
+            code: 3,
+        },
+        cost: '$0.00',
+    },
+]
