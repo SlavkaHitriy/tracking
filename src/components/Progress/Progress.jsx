@@ -58,8 +58,8 @@ export const Progress = ({ title, subtitle, data, staticData }) => {
                                             '.MuiSwitch-thumb': {
                                                 backgroundColor: 'green.main',
                                             },
-                                            '.Mui-checked+.MuiSwitch-track': {
-                                                backgroundColor: 'grey.light',
+                                            '& .Mui-checked+.MuiSwitch-track': {
+                                                backgroundColor: 'grey.blue',
                                             },
                                         }}
                                         defaultChecked

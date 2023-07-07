@@ -92,7 +92,14 @@ export const Assets = () => {
                 <Box flexGrow={1}>
                     {activeView === 'table' && (
                         <ScrollContent>
-                            <Box px={3} pb={3} height={600}>
+                            <Box
+                                px={3}
+                                pb={3}
+                                height={600}
+                                sx={{
+                                    overflowX: 'auto',
+                                }}
+                            >
                                 <DefaultDataGrid
                                     columns={columns}
                                     rows={rows}

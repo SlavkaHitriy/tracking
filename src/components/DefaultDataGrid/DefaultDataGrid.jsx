@@ -12,10 +12,10 @@ export const DefaultDataGrid = ({ columns, rows, ...otherProps }) => {
                 border: 'none',
                 fontSize: 13,
                 '.MuiDataGrid-columnHeaders': {
-                    backgroundColor: '#F5F7FB',
                     border: 'none',
                     borderRadius: '5px',
                     fontSize: 15,
+                    overflow: 'visible',
                 },
                 '.MuiDataGrid-columnHeaderTitle': {
                     fontWeight: 700,
@@ -59,8 +59,14 @@ export const DefaultDataGrid = ({ columns, rows, ...otherProps }) => {
                     flexShrink: 0,
                 },
                 '.MuiDataGrid-virtualScroller': {
-                    overflow: 'visible'
-                }
+                    overflow: 'visible',
+                },
+                '.MuiDataGrid-main': {
+                    overflowX: 'auto',
+                },
+                '.MuiDataGrid-columnHeadersInner': {
+                    backgroundColor: '#F5F7FB',
+                },
             }}
             columns={columns}
             rows={rows}

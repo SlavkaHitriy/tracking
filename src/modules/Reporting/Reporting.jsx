@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import styles from './Assets.module.scss';
-import { Box, Stack } from '@mui/material';
+import { Box, Stack } from "@mui/material";
 import { Title } from '../../components/Title/index.js';
 import { DefaultDataGrid } from '../../components/DefaultDataGrid/index.js';
 import { columns, rows } from './staticData/tableData.jsx';

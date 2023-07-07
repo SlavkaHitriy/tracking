@@ -35,11 +35,6 @@
     <codeStyleSettings language="JavaScript">
       <option name="PLACE_ASSIGNMENT_SIGN_ON_NEXT_LINE" value="true" />
       <option name="SOFT_MARGINS" value="80" />
-      <indentOptions>
-        <option name="INDENT_SIZE" value="2" />
-        <option name="CONTINUATION_INDENT_SIZE" value="2" />
-        <option name="TAB_SIZE" value="2" />
-      </indentOptions>
     </codeStyleSettings>
     <codeStyleSettings language="Markdown">
       <option name="RIGHT_MARGIN" value="0" />

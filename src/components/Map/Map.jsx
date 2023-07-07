@@ -57,10 +57,6 @@ export const Map = ({ sx }) => {
                 setZoom(map.current.getZoom().toFixed(2));
             });
 
-            map.current.on('click', (e) => {
-                console.log(e);
-            });
-
             for (const feature of geojson.features) {
                 // create a HTML element for each feature
                 const el = document.createElement('div');

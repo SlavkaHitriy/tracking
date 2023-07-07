@@ -9,7 +9,7 @@ export const GridItems = ({ openDetails }) => {
         <Box>
             <Grid container spacing={2}>
                 {gridItems.map((item) => (
-                    <Grid key={item.id} item xs={3}>
+                    <Grid key={item.id} item xs={6} lg={4} xl={3}>
                         <Stack
                             direction={'row'}
                             spacing={2}

@@ -21,15 +21,16 @@ export const Tracking = () => {
             <Title type={'header'}>Tracking</Title>
             <Stack flexGrow={1} spacing={4}>
                 <Stack
-                    direction={'row'}
-                    alignItems={'center'}
+                    direction={{ xl: 'row', xs: 'column' }}
+                    alignItems={{ xl: 'center', xs: 'flex-start' }}
                     justifyContent={'space-between'}
-                    spacing={5}
+                    spacing={{ xl: 5, xs: 2 }}
                     px={3}
                     pt={3}
+                    flexWrap={{ xs: 'wrap', xl: 'nowrap' }}
                 >
                     <StatusFilters />
-                    <Box flexGrow={1}>
+                    <Box flexGrow={1} width={{ xl: 'auto', xs: '50%' }}>
                         <SearchInput />
                     </Box>
                     <Filters />
@@ -158,7 +159,7 @@ export const Tracking = () => {
                             sx={{
                                 overflow: 'hidden',
                                 borderTopLeftRadius: '5px',
-                                boxShadow: '0 3px 6px rgba(0 0 0 / 16%)'
+                                boxShadow: '0 3px 6px rgba(0 0 0 / 16%)',
                             }}
                         >
                             <Map />
