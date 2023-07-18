@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import styles from './Assets.module.scss';
+import styles from './Tracking.module.scss';
 import { Box, Stack, Typography } from '@mui/material';
 import { Title } from '../../components/Title/index.js';
 import { ScrollContent } from '../../components/ScrollContent/index.js';

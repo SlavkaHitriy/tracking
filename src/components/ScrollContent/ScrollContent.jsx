@@ -5,9 +5,12 @@ import { useCalculateElementHeight } from '../../core/hooks/useCalculateElementH
 import styles from './index.module.scss';
 import { Stack } from '@mui/material';
 
-export const ScrollContent = ({ children, className }) => {
+export const ScrollContent = ({ children, className, resizeDependency }) => {
     const contentEl = useRef();
-    const elementHeight = useCalculateElementHeight(contentEl);
+    const elementHeight = useCalculateElementHeight(
+        contentEl,
+        resizeDependency
+    );
 
     return (
         <Stack

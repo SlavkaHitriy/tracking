@@ -7,6 +7,8 @@ import styles from './index.module.scss';
 import { Box, Stack, Typography } from '@mui/material';
 import { Dropdown } from '../Dropdown/index.js';
 import { DefaultAvatar } from '../DefaultAvatar/index.js';
+import { NotificationsOutlined } from '@mui/icons-material';
+import { Notifications } from './Notifications.jsx';
 
 export const Header = () => {
     const menuItems = useRef([
@@ -72,7 +74,37 @@ export const Header = () => {
                     ))}
                 </ul>
             </Box>
-            <Box className={styles.headerUser}>
+            <Stack direction={'row'} spacing={4} alignItems={'center'}>
+                <Dropdown content={<Notifications />}>
+                    <Stack direction={'row'} alignItems={'center'} spacing={2}>
+                        <Box
+                            sx={{
+                                position: 'relative',
+                                svg: {
+                                    width: 28,
+                                    height: 28,
+                                    position: 'static',
+                                    transform: 'unset',
+                                },
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    width: 10,
+                                    height: 10,
+                                    backgroundColor: 'green.main',
+                                    borderRadius: '10px',
+                                    position: 'absolute',
+                                    right: 3,
+                                    top: 4,
+                                    zIndex: 3,
+                                }}
+                            />
+                            <NotificationsOutlined />
+                        </Box>
+                        <Typography fontSize={13}>Notifications</Typography>
+                    </Stack>
+                </Dropdown>
                 <Stack direction={'row'} alignItems={'center'} spacing={2}>
                     <DefaultAvatar>AB</DefaultAvatar>
                     <Dropdown>
@@ -87,7 +119,7 @@ export const Header = () => {
                         </Stack>
                     </Dropdown>
                 </Stack>
-            </Box>
+            </Stack>
         </Stack>
     );
 };

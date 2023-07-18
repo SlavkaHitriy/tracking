@@ -9,7 +9,7 @@ import { DetailsData } from './DetailsData.jsx';
 import { ContactData } from './ContactData.jsx';
 import { TrackerData } from './TrackerData.jsx';
 
-export const AssetInfo = ({ sx }) => {
+export const AssetInfo = ({ sx, isFullscreen }) => {
     const tabsData = useRef([
         {
             id: 1,
@@ -38,10 +38,10 @@ export const AssetInfo = ({ sx }) => {
     return (
         <Stack
             sx={{
-                borderRadius: '10px',
+                borderRadius: isFullscreen ? 'none' : '10px',
                 overflow: 'hidden',
                 backgroundColor: 'common.white',
-                height: 500,
+                height: isFullscreen ? '100%' : 500,
                 ...sx,
             }}
         >
@@ -49,16 +49,19 @@ export const AssetInfo = ({ sx }) => {
                 px={4}
                 direction={'row'}
                 spacing={3}
-                height={65}
+                height={isFullscreen ? 50 : 65}
+                justifyContent={isFullscreen && 'space-between'}
                 sx={{
                     borderBottom: '1px solid black',
                     borderColor: 'grey.light',
+                    backgroundColor: isFullscreen ? 'primary.main' : 'unset',
                 }}
             >
                 <Title
                     sx={{
                         display: 'flex',
                         alignItems: 'center',
+                        color: isFullscreen && 'common.white',
                     }}
                 >
                     Trailer 4485-0254
@@ -69,6 +72,7 @@ export const AssetInfo = ({ sx }) => {
                             className={cn(styles.assetTabItem, {
                                 [styles.assetTabItemActive]:
                                     activeTab === item.value,
+                                [styles.assetTabItemLight]: isFullscreen,
                             })}
                             key={item.id}
                             onClick={() => setActiveTab(item.value)}
@@ -79,50 +83,56 @@ export const AssetInfo = ({ sx }) => {
                 </Stack>
             </Stack>
             <Box flexGrow={1}>
-                <ScrollContent>
+                <ScrollContent resizeDependency={isFullscreen}>
                     <Box p={'24px 30px'}>
-                        {activeTab === 'overview' && <OverviewData />}
+                        {activeTab === 'overview' && (
+                            <OverviewData isFullscreen={isFullscreen} />
+                        )}
                         {activeTab === 'details' && <DetailsData />}
                         {activeTab === 'contact' && <ContactData />}
-                        {activeTab === 'tracker' && <TrackerData />}
+                        {activeTab === 'tracker' && (
+                            <TrackerData isFullscreen={isFullscreen} />
+                        )}
                     </Box>
                 </ScrollContent>
             </Box>
-            <Stack
-                direction={'row'}
-                spacing={2}
-                justifyContent={'space-between'}
-                p={'22px 50px'}
-                sx={{
-                    color: 'common.white',
-                    backgroundColor: 'primary.main',
-                }}
-            >
-                <Stack alignItems={'center'}>
-                    <Typography>Temp</Typography>
-                    <Typography fontSize={20} fontWeight={700}>
-                        99.33
-                    </Typography>
+            {!isFullscreen && (
+                <Stack
+                    direction={'row'}
+                    spacing={2}
+                    justifyContent={'space-between'}
+                    p={'22px 50px'}
+                    sx={{
+                        color: 'common.white',
+                        backgroundColor: 'primary.main',
+                    }}
+                >
+                    <Stack alignItems={'center'}>
+                        <Typography>Temp</Typography>
+                        <Typography fontSize={20} fontWeight={700}>
+                            99.33
+                        </Typography>
+                    </Stack>
+                    <Stack alignItems={'center'}>
+                        <Typography>Speed (mph)</Typography>
+                        <Typography fontSize={20} fontWeight={700}>
+                            24.5
+                        </Typography>
+                    </Stack>
+                    <Stack alignItems={'center'}>
+                        <Typography>Heading</Typography>
+                        <Typography fontSize={20} fontWeight={700}>
+                            84.3
+                        </Typography>
+                    </Stack>
+                    <Stack alignItems={'center'}>
+                        <Typography>Altitude (m)</Typography>
+                        <Typography fontSize={20} fontWeight={700}>
+                            35.2
+                        </Typography>
+                    </Stack>
                 </Stack>
-                <Stack alignItems={'center'}>
-                    <Typography>Speed (mph)</Typography>
-                    <Typography fontSize={20} fontWeight={700}>
-                        24.5
-                    </Typography>
-                </Stack>
-                <Stack alignItems={'center'}>
-                    <Typography>Heading</Typography>
-                    <Typography fontSize={20} fontWeight={700}>
-                        84.3
-                    </Typography>
-                </Stack>
-                <Stack alignItems={'center'}>
-                    <Typography>Altitude (m)</Typography>
-                    <Typography fontSize={20} fontWeight={700}>
-                        35.2
-                    </Typography>
-                </Stack>
-            </Stack>
+            )}
         </Stack>
     );
 };

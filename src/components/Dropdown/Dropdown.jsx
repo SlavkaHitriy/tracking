@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { KeyboardArrowDown } from '@mui/icons-material';
 import styles from './index.module.scss';
 
-export const Dropdown = ({ children, ...otherProps }) => {
+export const Dropdown = ({ children, content, ...otherProps }) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -27,11 +27,22 @@ export const Dropdown = ({ children, ...otherProps }) => {
                 MenuListProps={{
                     'aria-labelledby': 'basic-button',
                 }}
+                sx={{
+                    '.MuiMenu-list': {
+                        p: 0,
+                    },
+                }}
                 {...otherProps}
             >
-                <MenuItem onClick={handleClose}>Test 1</MenuItem>
-                <MenuItem onClick={handleClose}>Test 2</MenuItem>
-                <MenuItem onClick={handleClose}>Test 3</MenuItem>
+                {content ? (
+                    content
+                ) : (
+                    <Box>
+                        <MenuItem onClick={handleClose}>Test 1</MenuItem>
+                        <MenuItem onClick={handleClose}>Test 2</MenuItem>
+                        <MenuItem onClick={handleClose}>Test 3</MenuItem>
+                    </Box>
+                )}
             </Menu>
         </div>
     );

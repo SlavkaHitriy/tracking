@@ -1,7 +1,13 @@
 import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
-export const DefaultDataGrid = ({ columns, rows, ...otherProps }) => {
+export const DefaultDataGrid = ({
+    columns,
+    rows,
+    sx,
+    disablePagination,
+    ...otherProps
+}) => {
     return (
         <DataGrid
             initialState={{
@@ -22,6 +28,7 @@ export const DefaultDataGrid = ({ columns, rows, ...otherProps }) => {
                 },
                 '.MuiDataGrid-footerContainer': {
                     border: 'none',
+                    display: disablePagination && 'none',
                 },
                 '.MuiDataGrid-cell': {
                     border: 'none',
@@ -67,6 +74,11 @@ export const DefaultDataGrid = ({ columns, rows, ...otherProps }) => {
                 '.MuiDataGrid-columnHeadersInner': {
                     backgroundColor: '#F5F7FB',
                 },
+                '.MuiDataGrid-columnHeaderTitleContainerContent': {
+                    flexGrow: 1,
+                    maxWidth: '200px',
+                },
+                ...sx,
             }}
             columns={columns}
             rows={rows}

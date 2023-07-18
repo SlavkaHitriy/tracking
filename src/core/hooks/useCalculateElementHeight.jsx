@@ -1,27 +1,30 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
-export const useCalculateElementHeight = (elementRef) => {
-    const [height, setHeight] = useState(0)
+export const useCalculateElementHeight = (
+    elementRef,
+    ...resizeDependencies
+) => {
+    const [height, setHeight] = useState(0);
 
     const calculateHeight = () => {
-        const parentEl = elementRef.current.parentElement
-        const allChildren = parentEl.children
-        let elementHeight = 0
+        const parentEl = elementRef.current.parentElement;
+        const allChildren = parentEl.children;
+        let elementHeight = 0;
 
         for (let i = 0; i < allChildren.length; i++) {
             if (allChildren[i] !== elementRef.current) {
-                elementHeight += allChildren[i].offsetHeight
+                elementHeight += allChildren[i].offsetHeight;
             }
         }
 
-        setHeight(parentEl.offsetHeight - elementHeight)
-    }
+        setHeight(parentEl.offsetHeight - elementHeight);
+    };
 
     useEffect(() => {
         if (elementRef.current) {
-            calculateHeight()
+            calculateHeight();
         }
-    }, [elementRef])
+    }, [elementRef, ...resizeDependencies]);
 
-    return height
-}
+    return height;
+};

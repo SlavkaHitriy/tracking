@@ -163,3 +163,9 @@ button {
     padding: 10px 15px;
     white-space: nowrap;
 }
+
+.MuiPaper-root.MuiMenu-paper {
+    max-height: unset;
+    overflow: hidden;
+    height: auto;
+}
