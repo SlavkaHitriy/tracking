@@ -7,17 +7,27 @@ import { Filters } from '../Filters/index.js';
 import { columns, rows } from './staticData/tableData.jsx';
 import { DefaultDataGrid } from '../DefaultDataGrid/index.js';
 import { Datepicker } from '../Datepicker/index.js';
+import { Title } from '../Title/index.js';
+import { Link } from 'react-router-dom';
 
 export const OverviewData = ({ isFullscreen }) => {
     return (
         <Stack spacing={3}>
-            <Stack direction={'row'} spacing={8} alignItems={'flex-start'}>
+            <Stack direction={'row'} spacing={6} alignItems={'flex-start'}>
                 <Stack
                     sx={{
                         minWidth: '225px',
                     }}
                     spacing={3}
                 >
+                    <Title
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                        }}
+                    >
+                        Trailer 4485-0254
+                    </Title>
                     <Box>
                         <img
                             className={styles.trackProgress}
@@ -69,7 +79,7 @@ export const OverviewData = ({ isFullscreen }) => {
                         flexGrow={1}
                     >
                         <Grid container spacing={3}>
-                            <Grid item xs={6}>
+                            <Grid item xs={4}>
                                 <Stack spacing={2}>
                                     <Typography>Status</Typography>
                                     <Stack
@@ -84,7 +94,7 @@ export const OverviewData = ({ isFullscreen }) => {
                                     </Stack>
                                 </Stack>
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={4}>
                                 <Stack spacing={2}>
                                     <Typography>Last Update</Typography>
                                     <Typography
@@ -93,6 +103,46 @@ export const OverviewData = ({ isFullscreen }) => {
                                     >
                                         12-01-22 1:34PM
                                     </Typography>
+                                </Stack>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Stack
+                                    spacing={2}
+                                    sx={{
+                                        a: {
+                                            textDecoration: 'underline',
+                                        },
+                                    }}
+                                >
+                                    <Box position={'relative'}>
+                                        <Stack
+                                            alignItems={'center'}
+                                            justifyContent={'center'}
+                                            sx={{
+                                                width: 30,
+                                                height: 30,
+                                                borderRadius: '50%',
+                                                backgroundColor: 'green.main',
+                                                position: 'absolute',
+                                                left: 'calc(100% + 10px)',
+                                                top: '50%',
+                                                transform: 'translateY(-50%)',
+                                            }}
+                                        >
+                                            <Typography
+                                                fontWeight={700}
+                                                fontSize={17}
+                                                color={'common.white'}
+                                                lineHeight={1}
+                                            >
+                                                P
+                                            </Typography>
+                                        </Stack>
+                                        <Typography>
+                                            Pay-as-You-Track
+                                        </Typography>
+                                    </Box>
+                                    <Link to={'/tracking'}>Configure</Link>
                                 </Stack>
                             </Grid>
                         </Grid>
@@ -153,11 +203,6 @@ export const OverviewData = ({ isFullscreen }) => {
                         columns={columns}
                         rows={rows}
                         onRowClick={() => {}}
-                        sx={{
-                            '.MuiDataGrid-main': {
-                                overflowX: 'hidden',
-                            },
-                        }}
                     />
                 </Stack>
             )}

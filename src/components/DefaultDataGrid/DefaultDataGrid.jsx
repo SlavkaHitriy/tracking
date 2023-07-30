@@ -6,17 +6,27 @@ export const DefaultDataGrid = ({
     rows,
     sx,
     disablePagination,
+    pageItems,
+    pageSizeOptions = [5, 10, 25],
     ...otherProps
 }) => {
     return (
         <DataGrid
             initialState={{
-                pagination: { paginationModel: { pageSize: 5 } },
+                pagination: { paginationModel: { pageSize: pageItems || 5 } },
             }}
-            pageSizeOptions={[5, 10, 25]}
+            pageSizeOptions={pageSizeOptions}
             sx={{
                 border: 'none',
                 fontSize: 13,
+                '.MuiDataGrid-columnHeader': {
+                    '&:last-of-type': {
+                        overflow: 'hidden',
+                    },
+                    '&:last-of-type .MuiDataGrid-columnSeparator': {
+                        display: 'none',
+                    },
+                },
                 '.MuiDataGrid-columnHeaders': {
                     border: 'none',
                     borderRadius: '5px',

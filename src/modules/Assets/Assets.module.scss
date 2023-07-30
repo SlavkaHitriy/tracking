@@ -15,6 +15,7 @@
     height: 100%;
     background-color: var(--white);
     border-left: 1px solid var(--greyLight);
+    z-index: 4;
 
     @media (max-width: 1536px) {
         width: calc(100% - 750px);
@@ -24,6 +25,7 @@
 .assetTabItem {
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     padding: 10px 15px;
     color: var(--black);
@@ -63,5 +65,6 @@
 .trackProgress {
     width: 100%;
     object-fit: contain;
-    height: 135px;
+    object-position: left center;
+    height: 90px;
 }

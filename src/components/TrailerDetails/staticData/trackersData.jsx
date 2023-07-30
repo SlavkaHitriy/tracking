@@ -1,5 +1,6 @@
 import { Slider } from '@mui/material';
 import React from 'react';
+import { DefaultSelect } from '../../DefaultSelect/index.js';
 
 export const columns = [
     {
@@ -8,6 +9,20 @@ export const columns = [
         width: 140,
     },
     { field: 'unit', headerName: 'Unit', width: 125 },
+    {
+        field: 'priority',
+        headerName: 'Priority',
+        width: 80,
+        renderCell: () => (
+            <DefaultSelect
+                customData={[
+                    { title: 'P1', value: 'P1' },
+                    { title: 'P2', value: 'P2' },
+                ]}
+                defaultValue={'P1'}
+            />
+        ),
+    },
     { field: 'minimum', headerName: 'Minimum', width: 100 },
     {
         field: 'slider',
@@ -59,6 +74,7 @@ export const rows = [
         id: 1,
         sensor: 'Speed',
         unit: 'MPH',
+        priority: 'Data',
         minimum: '25',
         maximum: '200',
     },
@@ -66,6 +82,7 @@ export const rows = [
         id: 2,
         sensor: 'Temperature',
         unit: 'Farenheit',
+        priority: 'Data',
         minimum: '34.5',
         maximum: '120',
     },
@@ -73,6 +90,7 @@ export const rows = [
         id: 3,
         sensor: 'Altitude',
         unit: 'Meters',
+        priority: 'Data',
         minimum: '1',
         maximum: '200',
     },

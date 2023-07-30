@@ -52,11 +52,6 @@ export const TrackerData = ({ isFullscreen }) => {
                         rows={rows}
                         onRowClick={() => {}}
                         disablePagination
-                        sx={{
-                            '.MuiDataGrid-main': {
-                                overflowX: 'hidden',
-                            },
-                        }}
                     />
                     <Typography fontWeight={700}>Details</Typography>
                     <Box>

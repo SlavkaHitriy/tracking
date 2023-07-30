@@ -5,13 +5,14 @@ import { Box, Stack, Typography } from '@mui/material';
 import { Title } from '../../components/Title/index.js';
 import { ScrollContent } from '../../components/ScrollContent/index.js';
 import { Map } from '../../components/Map/Map.jsx';
-import { trackerItems } from './staticData/trackerItems.js';
-import { Status } from '../../components/Status';
-import { getStatusColor } from '../../core/functions/statusHelpers.js';
 import { Details } from '../../components/TrailerDetails/Details.jsx';
-import { StatusFilters } from '../../components/StatusFilters/StatusFilters';
 import { SearchInput } from '../../components/SearchInput';
 import { Filters } from '../../components/Filters/Filters';
+import { ColoredInfo } from '../../components/ColoredInfo/index.js';
+import { DefaultCircularProgress } from '../../components/DefaultCircularProgress/index.js';
+import { Stats } from '../../components/Stats/index.js';
+import { columns, rows } from './staticData/trackerItems.jsx';
+import { DefaultDataGrid } from '../../components/DefaultDataGrid/index.js';
 
 export const Tracking = () => {
     const [isActiveDetails, setIsActiveDetails] = useState(false);
@@ -19,138 +20,93 @@ export const Tracking = () => {
     return (
         <Stack className={styles.assets}>
             <Title type={'header'}>Tracking</Title>
-            <Stack flexGrow={1} spacing={4}>
-                <Stack
-                    direction={{ xl: 'row', xs: 'column' }}
-                    alignItems={{ xl: 'center', xs: 'flex-start' }}
-                    justifyContent={'space-between'}
-                    spacing={{ xl: 5, xs: 2 }}
-                    px={3}
-                    pt={3}
-                    flexWrap={{ xs: 'wrap', xl: 'nowrap' }}
-                >
-                    <StatusFilters />
-                    <Box flexGrow={1} width={{ xl: 'auto', xs: '50%' }}>
-                        <SearchInput />
-                    </Box>
-                    <Filters />
+            <Stack flexGrow={1} spacing={1}>
+                <Stack px={2} mt={1}>
+                    <Stack
+                        direction={'row'}
+                        spacing={3}
+                        justifyContent={'space-between'}
+                        p={3}
+                        sx={{
+                            backgroundColor: 'primary.main',
+                            borderRadius: '10px',
+                            '*': {
+                                color: 'common.white',
+                            },
+                        }}
+                    >
+                        <Stack spacing={2}>
+                            <Stack direction={'row'} spacing={4}>
+                                <ColoredInfo
+                                    color={'common.white'}
+                                    title={'Total Footage'}
+                                    value={'20,300'}
+                                />
+                                <ColoredInfo
+                                    color={'green.main'}
+                                    title={'Total Joints'}
+                                    value={'5,203'}
+                                />
+                                <ColoredInfo
+                                    color={'secondary.main'}
+                                    title={'Total Tonnage'}
+                                    value={'40,000'}
+                                />
+                            </Stack>
+                            <Typography fontSize={12}>
+                                July 23, 2023 1:23PM
+                            </Typography>
+                        </Stack>
+                        <Stack
+                            direction={'row'}
+                            spacing={6}
+                            alignItems={'flex-start'}
+                        >
+                            <DefaultCircularProgress
+                                title={'Utilization'}
+                                value={78}
+                            />
+                            <DefaultCircularProgress
+                                title={'Allocation'}
+                                value={95}
+                            />
+                            <DefaultCircularProgress
+                                title={'Pipe Life'}
+                                value={95}
+                            />
+                        </Stack>
+                        <Stack direction={'row'} spacing={3}>
+                            <Stack spacing={2}>
+                                <Typography>Pipe Utilization</Typography>
+                                <Typography fontSize={20} fontWeight={700}>
+                                    +3.03%
+                                </Typography>
+                                <Typography fontSize={12}>
+                                    Compared to last 60 days
+                                </Typography>
+                            </Stack>
+                            <Stats />
+                        </Stack>
+                    </Stack>
                 </Stack>
                 <Box flexGrow={1}>
                     <Stack height={'100%'} direction={'row'}>
-                        <Box px={2} minWidth={420}>
+                        <Box minWidth={700}>
                             <ScrollContent>
-                                <Stack
-                                    spacing={2}
-                                    p={2}
-                                    sx={{
-                                        borderRadius: '5px',
-                                        backgroundColor: '#F5F7FB',
-                                    }}
-                                >
-                                    {trackerItems.map((tracker) => (
-                                        <Box
-                                            px={2}
-                                            py={1}
-                                            key={tracker.id}
-                                            sx={{
-                                                backgroundColor: 'common.white',
-                                                borderRadius: '5px',
-                                                position: 'relative',
-                                                cursor: 'pointer',
-                                            }}
-                                            onClick={() =>
-                                                setIsActiveDetails(true)
-                                            }
-                                        >
-                                            <Box
-                                                sx={{
-                                                    position: 'absolute',
-                                                    width: 4,
-                                                    height: 50,
-                                                    top: '50%',
-                                                    left: 0,
-                                                    transform:
-                                                        'translateY(-50%)',
-                                                    backgroundColor:
-                                                        getStatusColor(
-                                                            tracker.status
-                                                        ),
-                                                    m: 0,
-                                                }}
-                                            />
-                                            <Stack
-                                                direction={'row'}
-                                                spacing={2}
-                                                justifyContent={'space-between'}
-                                                alignItems={'center'}
-                                                mb={2}
-                                            >
-                                                <Title
-                                                    sx={{
-                                                        fontSize: 20,
-                                                    }}
-                                                >
-                                                    Trailer 4482
-                                                </Title>
-                                                <Typography>
-                                                    TN48055655
-                                                </Typography>
-                                            </Stack>
-                                            <Stack
-                                                direction={'row'}
-                                                spacing={2}
-                                                justifyContent={'space-between'}
-                                                alignItems={'center'}
-                                            >
-                                                <Stack
-                                                    direction={'row'}
-                                                    spacing={1}
-                                                    alignItems={'center'}
-                                                >
-                                                    <Typography>
-                                                        June 10
-                                                    </Typography>
-                                                    <Stack
-                                                        direction={'row'}
-                                                        alignItems={'center'}
-                                                    >
-                                                        <Box
-                                                            sx={{
-                                                                width: 7,
-                                                                height: 7,
-                                                                backgroundColor:
-                                                                    'primary.main',
-                                                                borderRadius:
-                                                                    '50%',
-                                                            }}
-                                                        />
-                                                        <Box
-                                                            sx={{
-                                                                width: 25,
-                                                                height: '1px',
-                                                                backgroundColor:
-                                                                    'primary.main',
-                                                            }}
-                                                        />
-                                                        <Box
-                                                            sx={{
-                                                                width: 7,
-                                                                height: 7,
-                                                                backgroundColor:
-                                                                    'primary.main',
-                                                                borderRadius:
-                                                                    '50%',
-                                                            }}
-                                                        />
-                                                    </Stack>
-                                                    <Typography>
-                                                        23 mph
-                                                    </Typography>
-                                                </Stack>
-                                                <Status code={tracker.status} />
-                                            </Stack>
-                                        </Box>
-                                    ))}
+                                <Stack px={2} spacing={2}>
+                                    <Stack direction={'row'} spacing={2}>
+                                        <SearchInput
+                                            placeholder={'Search for asset…'}
+                                        />
+                                        <Filters />
+                                    </Stack>
+                                    <DefaultDataGrid
+                                        columns={columns}
+                                        rows={rows}
+                                        onRowClick={() =>
+                                            setIsActiveDetails(true)
+                                        }
+                                    />
                                 </Stack>
                             </ScrollContent>
                         </Box>

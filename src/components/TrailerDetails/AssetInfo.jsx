@@ -1,39 +1,31 @@
 import { Box, Stack, Typography } from '@mui/material';
-import { Title } from '../Title/index.js';
 import { ScrollContent } from '../ScrollContent/index.js';
-import React, { useRef, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../modules/Assets/Assets.module.scss';
 import cn from 'classnames';
 import { OverviewData } from './OverviewData.jsx';
 import { DetailsData } from './DetailsData.jsx';
 import { ContactData } from './ContactData.jsx';
 import { TrackerData } from './TrackerData.jsx';
+import { Notifications } from './Notifications.jsx';
+import { SensorData } from './SensorData.jsx';
 
-export const AssetInfo = ({ sx, isFullscreen }) => {
-    const tabsData = useRef([
-        {
-            id: 1,
-            title: 'Overview',
-            value: 'overview',
-        },
-        {
-            id: 2,
-            title: 'Details',
-            value: 'details',
-        },
-        {
-            id: 3,
-            title: 'Contact',
-            value: 'contact',
-        },
-        {
-            id: 4,
-            title: 'Tracker',
-            value: 'tracker',
-        },
-    ]);
-
-    const [activeTab, setActiveTab] = useState(tabsData.current[0].value);
+export const AssetInfo = ({
+    sx,
+    tabsData,
+    isFullscreen,
+    setIsFullscreen,
+    activeTab,
+    setActiveTab,
+}) => {
+    useEffect(() => {
+        if (
+            tabsData.find((tab) => tab.value === activeTab)?.isFullviewOnly &&
+            setIsFullscreen
+        ) {
+            setIsFullscreen(true);
+        }
+    }, [activeTab]);
 
     return (
         <Stack
@@ -46,7 +38,6 @@ export const AssetInfo = ({ sx, isFullscreen }) => {
             }}
         >
             <Stack
-                px={4}
                 direction={'row'}
                 spacing={3}
                 height={isFullscreen ? 50 : 65}
@@ -57,18 +48,16 @@ export const AssetInfo = ({ sx, isFullscreen }) => {
                     backgroundColor: isFullscreen ? 'primary.main' : 'unset',
                 }}
             >
-                <Title
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        color: isFullscreen && 'common.white',
-                    }}
+                <Stack
+                    direction={'row'}
+                    spacing={3}
+                    component={'ul'}
+                    width={'100%'}
                 >
-                    Trailer 4485-0254
-                </Title>
-                <Stack direction={'row'} spacing={3} component={'ul'}>
-                    {tabsData.current.map((item) => (
-                        <li
+                    {tabsData.map((item) => (
+                        <Box
+                            component={'li'}
+                            sx={{ flexGrow: 1 }}
                             className={cn(styles.assetTabItem, {
                                 [styles.assetTabItemActive]:
                                     activeTab === item.value,
@@ -78,18 +67,20 @@ export const AssetInfo = ({ sx, isFullscreen }) => {
                             onClick={() => setActiveTab(item.value)}
                         >
                             {item.title}
-                        </li>
+                        </Box>
                     ))}
                 </Stack>
             </Stack>
             <Box flexGrow={1}>
                 <ScrollContent resizeDependency={isFullscreen}>
-                    <Box p={'24px 30px'}>
+                    <Box p={'24px 30px'} flexGrow={1}>
                         {activeTab === 'overview' && (
                             <OverviewData isFullscreen={isFullscreen} />
                         )}
                         {activeTab === 'details' && <DetailsData />}
                         {activeTab === 'contact' && <ContactData />}
+                        {activeTab === 'sensorData' && <SensorData />}
+                        {activeTab === 'notifications' && <Notifications />}
                         {activeTab === 'tracker' && (
                             <TrackerData isFullscreen={isFullscreen} />
                         )}

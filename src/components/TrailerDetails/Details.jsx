@@ -10,10 +10,46 @@ import {
 import { DefaultIconButton } from '../DefaultIconButton/index.js';
 import { Map } from '../Map/Map.jsx';
 import { AssetInfo } from './AssetInfo.jsx';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { EditDetails } from './EditDetails.jsx';
 
 export const Details = ({ closeDetails }) => {
+    const tabsData = useRef([
+        {
+            id: 1,
+            title: 'Overview',
+            value: 'overview',
+        },
+        {
+            id: 2,
+            title: 'Details',
+            value: 'details',
+        },
+        {
+            id: 3,
+            title: 'Contact',
+            value: 'contact',
+        },
+        {
+            id: 4,
+            title: 'Sensor Data',
+            value: 'sensorData',
+            isFullviewOnly: true,
+        },
+        {
+            id: 5,
+            title: 'Notifications',
+            value: 'notifications',
+            isFullviewOnly: true,
+        },
+        {
+            id: 6,
+            title: 'Tracker',
+            value: 'tracker',
+        },
+    ]);
+
+    const [activeTab, setActiveTab] = useState(tabsData.current[0].value);
     const [isEditDetails, setIsEditDetails] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -29,20 +65,26 @@ export const Details = ({ closeDetails }) => {
                         position: 'absolute',
                         maxWidth: {
                             xl: 'unset',
-                            xs: '750px',
+                            xs: activeTab === 'sensorData' ? 'unset' : '750px',
                         },
                         width: {
-                            xl: '50%',
+                            xl: activeTab === 'sensorData' ? '100%' : '50%',
                             xs: '100%',
                         },
                         height: '100%',
                         backgroundColor: 'common.white',
-                        zIndex: 4,
+                        zIndex: 6,
                         top: 0,
                         left: 0,
                     }}
                 >
-                    <AssetInfo isFullscreen={isFullscreen} />
+                    <AssetInfo
+                        tabsData={tabsData.current}
+                        activeTab={activeTab}
+                        setActiveTab={setActiveTab}
+                        isFullscreen={isFullscreen}
+                        setIsFullscreen={setIsFullscreen}
+                    />
                 </Box>
             )}
             <Box className={styles.details}>
@@ -122,7 +164,12 @@ export const Details = ({ closeDetails }) => {
                     }}
                 >
                     {!isFullscreen ? (
-                        <AssetInfo />
+                        <AssetInfo
+                            tabsData={tabsData.current}
+                            activeTab={activeTab}
+                            setActiveTab={setActiveTab}
+                            setIsFullscreen={setIsFullscreen}
+                        />
                     ) : (
                         <Stack
                             direction={'row'}
