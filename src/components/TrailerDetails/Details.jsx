@@ -32,18 +32,12 @@ export const Details = ({ closeDetails }) => {
         },
         {
             id: 4,
-            title: 'Sensor Data',
-            value: 'sensorData',
-            isFullviewOnly: true,
-        },
-        {
-            id: 5,
             title: 'Notifications',
             value: 'notifications',
             isFullviewOnly: true,
         },
         {
-            id: 6,
+            id: 5,
             title: 'Tracker',
             value: 'tracker',
         },
@@ -87,7 +81,12 @@ export const Details = ({ closeDetails }) => {
                     />
                 </Box>
             )}
-            <Box className={styles.details}>
+            <Box
+                className={styles.details}
+                sx={{
+                    minWidth: isFullscreen ? 'unset' : '800px',
+                }}
+            >
                 <DefaultButton
                     startIcon={<EditNote />}
                     sx={{
@@ -153,7 +152,7 @@ export const Details = ({ closeDetails }) => {
                         icon={<Close />}
                     />
                 </Stack>
-                <Map />
+                <Map isFullscreenUpdate={isFullscreen} />
                 <Box
                     sx={{
                         position: 'absolute',

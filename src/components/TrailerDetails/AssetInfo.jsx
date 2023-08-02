@@ -8,7 +8,6 @@ import { DetailsData } from './DetailsData.jsx';
 import { ContactData } from './ContactData.jsx';
 import { TrackerData } from './TrackerData.jsx';
 import { Notifications } from './Notifications.jsx';
-import { SensorData } from './SensorData.jsx';
 
 export const AssetInfo = ({
     sx,
@@ -57,7 +56,6 @@ export const AssetInfo = ({
                     {tabsData.map((item) => (
                         <Box
                             component={'li'}
-                            sx={{ flexGrow: 1 }}
                             className={cn(styles.assetTabItem, {
                                 [styles.assetTabItemActive]:
                                     activeTab === item.value,
@@ -71,7 +69,7 @@ export const AssetInfo = ({
                     ))}
                 </Stack>
             </Stack>
-            <Box flexGrow={1}>
+            <Box flexGrow={1} position={'relative'}>
                 <ScrollContent resizeDependency={isFullscreen}>
                     <Box p={'24px 30px'} flexGrow={1}>
                         {activeTab === 'overview' && (
@@ -79,7 +77,6 @@ export const AssetInfo = ({
                         )}
                         {activeTab === 'details' && <DetailsData />}
                         {activeTab === 'contact' && <ContactData />}
-                        {activeTab === 'sensorData' && <SensorData />}
                         {activeTab === 'notifications' && <Notifications />}
                         {activeTab === 'tracker' && (
                             <TrackerData isFullscreen={isFullscreen} />

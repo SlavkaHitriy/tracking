@@ -11,6 +11,7 @@ import { Login } from './modules/Login/index.js';
 import { Forgot } from './modules/Forgot/index.js';
 import { Register } from './modules/Register/index.js';
 import { Success } from './modules/Success/index.js';
+import { Sensor } from './modules/Sensor/index.js';
 
 export const App = () => {
     const location = useLocation();
@@ -24,6 +25,7 @@ export const App = () => {
                     <Route path='/assets' element={<Assets />} />
                     <Route path='/settings' element={<Settings />} />
                     <Route path='/reporting' element={<Reporting />} />
+                    <Route path='/sensor' element={<Sensor />} />
 
                     <Route path='/auth/login' element={<Login />} />
                     <Route path='/auth/register' element={<Register />} />

@@ -39,18 +39,18 @@ export const Tracking = () => {
                             <Stack direction={'row'} spacing={4}>
                                 <ColoredInfo
                                     color={'common.white'}
-                                    title={'Total Footage'}
-                                    value={'20,300'}
+                                    title={'Total Assets'}
+                                    value={'1000'}
                                 />
                                 <ColoredInfo
                                     color={'green.main'}
-                                    title={'Total Joints'}
-                                    value={'5,203'}
+                                    title={'Active Assets'}
+                                    value={'1200'}
                                 />
                                 <ColoredInfo
                                     color={'secondary.main'}
-                                    title={'Total Tonnage'}
-                                    value={'40,000'}
+                                    title={'Inactive Assets'}
+                                    value={'234'}
                                 />
                             </Stack>
                             <Typography fontSize={12}>
@@ -67,17 +67,17 @@ export const Tracking = () => {
                                 value={78}
                             />
                             <DefaultCircularProgress
-                                title={'Allocation'}
+                                title={'Online Devices'}
                                 value={95}
                             />
                             <DefaultCircularProgress
-                                title={'Pipe Life'}
+                                title={'Offline Devices'}
                                 value={95}
                             />
                         </Stack>
                         <Stack direction={'row'} spacing={3}>
                             <Stack spacing={2}>
-                                <Typography>Pipe Utilization</Typography>
+                                <Typography>Asset Utilization</Typography>
                                 <Typography fontSize={20} fontWeight={700}>
                                     +3.03%
                                 </Typography>
@@ -118,7 +118,7 @@ export const Tracking = () => {
                                 boxShadow: '0 3px 6px rgba(0 0 0 / 16%)',
                             }}
                         >
-                            <Map />
+                            <Map fullview />
                         </Box>
                     </Stack>
                 </Box>

@@ -20,6 +20,13 @@ export const columns = [
                     { title: 'P2', value: 'P2' },
                 ]}
                 defaultValue={'P1'}
+                sx={{
+                    '.MuiInputBase-root': {
+                        '&::before, &::after': {
+                            display: 'none',
+                        },
+                    },
+                }}
             />
         ),
     },

@@ -23,6 +23,11 @@ export const Header = () => {
             link: '/assets',
         },
         {
+            id: 2,
+            title: 'Sensor Data',
+            link: '/sensor',
+        },
+        {
             id: 3,
             title: 'Reporting',
             link: '/reporting',

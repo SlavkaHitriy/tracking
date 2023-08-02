@@ -1,6 +1,6 @@
 import { Stack, Typography } from '@mui/material';
 import React from 'react';
-import { ColorStatus } from '../../ColorStatus/index.js';
+import { ColorStatus } from '../../../components/ColorStatus/index.js';
 
 export const columns = [
     {

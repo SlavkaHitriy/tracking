@@ -11,39 +11,22 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 50%;
+    width: 750px;
     height: 100%;
     background-color: var(--white);
     border-left: 1px solid var(--greyLight);
-    z-index: 4;
-
-    @media (max-width: 1536px) {
-        width: calc(100% - 750px);
-    }
 }
 
 .assetTabItem {
     display: flex;
     align-items: center;
-    justify-content: center;
     position: relative;
-    padding: 10px 20px;
+    padding: 10px 15px;
     color: var(--black);
     cursor: pointer;
 
     &:hover {
         color: var(--secondary);
-    }
-
-    &Light {
-        color: var(--white);
-        padding: 10px 20px;
-
-        &.assetTabItemActive {
-            &::after {
-                background-color: var(--white);
-            }
-        }
     }
 }
 
@@ -65,6 +48,5 @@
 .trackProgress {
     width: 100%;
     object-fit: contain;
-    object-position: left center;
-    height: 90px;
+    height: 135px;
 }
