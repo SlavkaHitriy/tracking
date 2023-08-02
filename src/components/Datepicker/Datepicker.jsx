@@ -1,11 +1,11 @@
-import { DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 
 export const Datepicker = () => {
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DesktopDatePicker
+            <DateTimePicker
                 sx={{
                     boxShadow: '0 3px 6px rgba(0 0 0 / 16%)',
                     borderRadius: '5px',

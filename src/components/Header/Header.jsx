@@ -23,17 +23,17 @@ export const Header = () => {
             link: '/assets',
         },
         {
-            id: 2,
+            id: 3,
             title: 'Sensor Data',
             link: '/sensor',
         },
         {
-            id: 3,
+            id: 4,
             title: 'Reporting',
             link: '/reporting',
         },
         {
-            id: 4,
+            id: 5,
             title: 'Settings',
             link: '/settings',
         },
